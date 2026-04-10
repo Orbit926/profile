@@ -1,0 +1,134 @@
+@startuml Orbit AWS Infrastructure
+
+title Orbit - AWS Infrastructure Architecture
+
+skinparam componentStyle rectangle
+skinparam linetype ortho
+skinparam nodesep 80
+skinparam ranksep 60
+skinparam shadowing false
+
+' ==================== COLORS (ESPECIFICOS EN ESTA VERSION) ====================
+skinparam component {
+  BackgroundColor<<storage>> LightSkyBlue
+  BackgroundColor<<cdn>> LightGreen
+  BackgroundColor<<compute>> Orange
+  BackgroundColor<<api>> Yellow
+  BackgroundColor<<security>> Pink
+  BackgroundColor<<email>> LightCoral
+  BackgroundColor<<monitoring>> LightGray
+  BackgroundColor<<dns>> LightBlue
+}
+
+' ==================== EXTERNAL USERS ====================
+actor "Usuario Web" as User
+actor "Cliente Email" as EmailClient
+
+' ==================== DNS LAYER ====================
+package "DNS - Route 53" as DNS <<dns>> {
+  component "Route 53 Zone\norbit.com.mx" as route53 <<dns>> {
+    component "A Record (root)" as A_root
+    component "A Record (www)" as A_www
+    component "MX Records\n(Zoho Mail)" as MX
+    component "TXT Records\n(SPF, DKIM, DMARC)" as TXT
+    component "CNAME (ACM Validation)" as ACM_CNAME
+    component "TXT (SES Verification)" as SES_TXT
+    component "CNAME (SES DKIM)" as SES_DKIM
+    component "MX (SES MAIL FROM)" as SES_MX
+  }
+}
+
+' ==================== FRONTEND LAYER ====================
+package "Frontend - Static Website" as Frontend {
+  component "ACM Certificate\n*.orbit.com.mx\nTLS/SSL" as acm <<security>>
+  
+  package "CloudFront CDN\nDistribution" as cloudfront <<cdn>> {
+    component "OAC (Origin Access)" as OAC
+    component "Cache Policy" as CachePolicy
+    component "Security Headers" as SecurityHeaders
+    component "CF Function\n(Redirect to www)" as CFFunction
+  }
+  
+  database "S3 Bucket\norbit-prod-site-bucket\n(Private)" as s3_site <<storage>> {
+    component "index.html" as IndexHTML
+    component "assets/*" as Assets
+    component "Versioning: Disabled" as S3Version
+    component "Encryption: AES256" as S3Encrypt
+  }
+}
+
+' ==================== API LAYER ====================
+package "API - Contact Form" as API {
+  package "API Gateway HTTP\nPOST /contact" as apigw <<api>> {
+    component "CORS Config" as CORS
+    component "Throttling:\n10 burst / 1 rate" as Throttle
+  }
+  
+  component "Lambda Function\ncontact-form-fn" as lambda_contact <<compute>> {
+    component "Runtime: Python 3.12" as Runtime1
+    component "Memory: 256 MB" as Memory1
+    component "Timeout: 10s" as Timeout1
+    component "Env Vars:\n- RECAPTCHA_SECRET\n- EMAIL_DISPATCHER_FN\n- ZOHO_SMTP_PASS" as Env1
+  }
+  
+  component "IAM Role\nlambda-invoker-role" as iam_contact <<security>> {
+    component "Logs: CloudWatch" as LogsPolicy1
+    component "Invoke: Lambda" as InvokePolicy
+  }
+}
+
+' ==================== EMAIL LAYER ====================
+package "Email - Dispatcher & SES" as Email {
+  component "Lambda Function\nemail-dispatcher-fn" as lambda_email <<compute>> {
+    component "Runtime: Python 3.12" as Runtime2
+    component "Memory: 256 MB" as Memory2
+    component "Timeout: 10s" as Timeout2
+    component "Env Vars:\n- FROM_EMAIL\n- VENDOR_EMAIL\n- SES_REGION" as Env2
+  }
+  
+  component "IAM Role\nemail-dispatcher-role" as iam_email <<security>> {
+    component "Logs: CloudWatch" as LogsPolicy2
+    component "SES: Send Email" as SESPolicy
+  }
+  
+  component "Amazon SES\nEmail Service" as ses <<email>> {
+    component "Domain Identity:\norbit.com.mx" as SESDomain
+    component "Templates:\n- ContactAckTemplate\n- VendorNotifyTemplate" as SESTemplates
+    component "MAIL FROM:\nmail.orbit.com.mx" as MailFrom
+    component "Configuration Set:\nprod-default" as ConfigSet
+  }
+  
+  queue "SNS Topic\nses-bounces" as sns_bounce <<email>>
+  queue "SNS Topic\nses-complaints" as sns_complaint <<email>>
+  queue "SNS Topic\nses-deliveries" as sns_delivery <<email>>
+}
+
+' ==================== MONITORING ====================
+package "Monitoring" as Monitoring {
+  component "CloudWatch Logs\n/aws/lambda/contact-form-fn\nRetention: 30 days" as logs_contact <<monitoring>>
+  component "CloudWatch Logs\n/aws/lambda/email-dispatcher-fn\nRetention: 30 days" as logs_email <<monitoring>>
+}
+
+' ==================== RELATIONSHIPS ====================
+
+User --> route53 : 1. DNS Query\norbit.com.mx
+route53 --> A_root
+route53 --> A_www
+A_root --> cloudfront : 2. Alias to CloudFront
+A_www --> cloudfront : 2. Alias to CloudFront
+
+cloudfront --> acm : TLS Certificate
+cloudfront --> CFFunction : Redirect root -> www
+cloudfront --> OAC : Origin Access
+OAC --> s3_site : Get Static Files
+s3_site --> cloudfront : Serve static content
+cloudfront --> User : HTTPS Response
+
+' User to API
+User --> apigw : POST /contact
+apigw --> lambda_contact
+lambda_contact --> lambda_email
+lambda_email --> ses : SendTemplatedEmail
+ses --> EmailClient : Deliver email
+
+@enduml

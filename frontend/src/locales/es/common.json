@@ -1,0 +1,346 @@
+{
+  "header": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre nosotros",
+      "projects": "Proyectos",
+      "services": "Servicios"
+    },
+    "cta": "Agenda una llamada",
+    "menuAriaLabel": "Abrir menú de navegación"
+  },
+  "hero": {
+    "subtitle": "Orbit Web Studio",
+    "titleLine1": "Ponemos tu marca",
+    "titleLine2": "en órbita",
+    "bullets": {
+      "frontend": "Desarrollo frontend React + MUI",
+      "backend": "Integraciones y pequeños backends",
+      "deploy": "Deploy profesional y performance"
+    },
+    "ctaPrimary": "Ver servicios",
+    "ctaSecondary": "Proyectos"
+  },
+  "about": {
+    "title": "Sobre nosotros",
+    "subtitle": "Somos un estudio especializado en crear soluciones web que impulsan negocios y transforman ideas en realidad digital.",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Ayudar a empresas y emprendedores a establecer una presencia digital sólida mediante desarrollo web de alta calidad, enfocado en performance, escalabilidad y experiencia de usuario excepcional."
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "description": "Ser el estudio de referencia para quienes buscan soluciones web profesionales, modernas y escalables. Queremos que cada proyecto que sale de Orbit se convierta en un activo digital que genere valor real."
+    },
+    "strengthsTitle": "Nuestras Fortalezas",
+    "strengthsSubtitle": "Lo que nos distingue en cada proyecto que desarrollamos",
+    "strengths": {
+      "modern": {
+        "title": "Tecnología Moderna",
+        "description": "Trabajamos con React, Material UI, Django y las herramientas más actuales del ecosistema web."
+      },
+      "performance": {
+        "title": "Alto Rendimiento",
+        "description": "Optimizamos cada línea de código para garantizar velocidad, SEO y experiencia fluida en todos los dispositivos."
+      },
+      "deploy": {
+        "title": "Deploy Profesional",
+        "description": "Experiencia sólida en AWS, CI/CD y arquitecturas cloud escalables y seguras."
+      },
+      "design": {
+        "title": "Diseño Cuidado",
+        "description": "Cada interfaz es pensada para combinar estética moderna con usabilidad y conversión."
+      }
+    },
+    "valuesTitle": "Nuestros Valores",
+    "valuesSubtitle": "Los principios que guían nuestro trabajo todos los días",
+    "values": {
+      "quality": "Calidad sobre cantidad",
+      "communication": "Comunicación transparente",
+      "results": "Orientados a resultados"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Algunos de nuestros trabajos recientes",
+    "devaltra": {
+      "name": "Devaltra Logistics",
+      "type": "Landing Page",
+      "description": "Plataforma moderna para empresa de logística internacional con sistema de cotización en tiempo real."
+    },
+    "wedding": {
+      "name": "Invitación de Boda",
+      "type": "Invitación Digital",
+      "description": "Invitación de boda digital personalizada con diseño elegante, animaciones suaves y experiencia totalmente responsiva desarrollada para el enlace de mi tía."
+    },
+    "greenpaw": {
+      "name": "Greenpaw",
+      "type": "E-commerce",
+      "description": "Tienda online de productos para mascotas con carrito de compras, pasarela de pago y panel admin."
+    },
+    "openProject": "Abrir proyecto"
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Soluciones web completas desde el diseño hasta el deploy",
+    "landing": {
+      "title": "Landing pages de alto impacto",
+      "description": "Diseños modernos y optimizados para conversión, con animaciones fluidas y experiencia de usuario excepcional."
+    },
+    "webapp": {
+      "title": "Web apps a medida",
+      "description": "Aplicaciones web personalizadas con React, integración de APIs y arquitectura escalable."
+    },
+    "ecommerce": {
+      "title": "E-commerce compacto",
+      "description": "Tiendas online completas con pasarelas de pago, gestión de inventario y panel de administración."
+    },
+    "deploy": {
+      "title": "Deploy & performance",
+      "description": "Despliegue profesional en AWS, Vercel o Netlify con optimización de rendimiento y monitoreo."
+    }
+  },
+  "process": {
+    "title": "Proceso",
+    "subtitle": "Un flujo de trabajo transparente de principio a fin",
+    "discovery": {
+      "title": "Descubrimiento",
+      "description": "Entendemos tu visión, objetivos y requerimientos técnicos del proyecto."
+    },
+    "design": {
+      "title": "Wireframe & diseño",
+      "description": "Creamos prototipos y diseños que combinan estética con funcionalidad."
+    },
+    "development": {
+      "title": "Desarrollo",
+      "description": "Implementamos con código limpio, buenas prácticas y arquitectura escalable."
+    },
+    "deploy": {
+      "title": "Deploy & handoff",
+      "description": "Desplegamos en producción y te entregamos accesos y documentación completa."
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Tecnologías modernas y confiables para construir soluciones escalables",
+    "categories": {
+      "Frontend": "Frontend",
+      "Build Tool": "Build Tool",
+      "UI Framework": "UI Framework",
+      "Backend": "Backend",
+      "API": "API",
+      "Cloud": "Cloud",
+      "Deploy": "Deploy",
+      "Database": "Database",
+      "Payment": "Payment"
+    },
+    "otherTechTitle": "¿Necesitas otra tecnología?",
+    "otherTechDescription": "Podemos integrar cualquier herramienta que tu proyecto requiera o adaptar tu stack actual."
+  },
+  "pricing": {
+    "title": "Planes y Servicios",
+    "subtitle": "Elige el tipo de proyecto que mejor se adapta a lo que quieres construir.",
+    "basic": {
+      "name": "Landing Básica",
+      "description": "Perfecta para presentar tu negocio o proyecto de forma profesional.",
+      "price": "Desde $449 USD",
+      "features": {
+        "responsive": "Diseño responsive moderno",
+        "seo": "SEO básico",
+        "analytics": "Integración con Google Analytics",
+        "contact": "Formulario de contacto",
+        "performance": "Optimización ligera de rendimiento",
+        "revisions": "1 revisión incluida",
+        "support": "Soporte por 30 días"
+      },
+      "cta": "Empezar"
+    },
+    "professional": {
+      "name": "Sitio Profesional",
+      "description": "Ideal para empresas que buscan una presencia digital completa y bien estructurada.",
+      "price": "Desde $1,079 USD",
+      "features": {
+        "allBasic": "Todo lo de Landing Básica",
+        "multipage": "Múltiples páginas y secciones personalizadas",
+        "animations": "Animaciones avanzadas",
+        "extraForms": "Formularios adicionales",
+        "revisions": "2 revisiones incluidas",
+        "support": "Soporte por 30 días"
+      },
+      "cta": "Más popular",
+      "badge": "Más popular"
+    },
+    "custom": {
+      "name": "Web App a Medida / E-commerce",
+      "description": "Solución completa para aplicaciones web con funcionalidad avanzada y backend personalizado.",
+      "price": "Desde $2,479 USD",
+      "features": {
+        "allProfessional": "Todo lo de Sitio Profesional",
+        "database": "Base de datos",
+        "auth": "Autenticación de usuarios",
+        "admin": "Panel de administración",
+        "integrations": "Integraciones personalizadas",
+        "revisions": "Hasta 5 revisiones",
+        "support": "Soporte por 30 días"
+      },
+      "cta": "Agenda una llamada"
+    },
+    "disclaimer": "Los precios mostrados son precios iniciales ('desde') y pueden variar según el alcance del proyecto. Agenda una llamada para obtener una cotización personalizada."
+  },
+  "testimonials": {
+    "title": "Lo que dicen nuestros clientes",
+    "subtitle": "Experiencias reales de personas que confiaron en Orbit para llevar su presencia digital al siguiente nivel.",
+    "luisSergio": {
+      "name": "Luis Sergio",
+      "role": "Director de Devaltra Logistics",
+      "quote": "El equipo de Orbit creó una landing page profesional y optimizada que elevó por completo la imagen de nuestra empresa. Ahora nuestros clientes entienden mejor nuestros servicios y cotizan más rápido."
+    },
+    "mariaJose": {
+      "name": "Maria Jose",
+      "role": "Fundadora de Greenpaw",
+      "quote": "La tienda en línea quedó increíble. Todo se ve moderno, rápido y muy claro para nuestros clientes. Gracias a Orbit pudimos lanzar nuestro producto de manera profesional desde el día uno."
+    },
+    "sara": {
+      "name": "Sara",
+      "role": "Novia – Boda",
+      "quote": "La invitación digital superó todas nuestras expectativas. El diseño, las animaciones y la experiencia móvil fueron perfectas. Todos nuestros invitados nos felicitaron por lo bonita y funcional que quedó."
+    }
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "subtitle": "Resolvemos las dudas más comunes sobre nuestros servicios y nuestro proceso de desarrollo.",
+    "questions": {
+      "whatIncludes": {
+        "question": "¿Qué incluye el desarrollo de una página web?",
+        "answer": "Incluye diseño personalizado, desarrollo responsive, optimización de rendimiento, SEO esencial, integración con APIs y despliegue en AWS o Vercel."
+      },
+      "timeline": {
+        "question": "¿Cuánto tarda un proyecto en completarse?",
+        "answer": "Una landing page suele tardar entre 1–2 semanas y un proyecto más completo entre 4–8 semanas. Entregamos un cronograma claro al iniciar."
+      },
+      "technologies": {
+        "question": "¿Usan tecnologías modernas?",
+        "answer": "Sí. Trabajamos con React, Vite, Material UI, Django, AWS y prácticas modernas de rendimiento y seguridad."
+      },
+      "support": {
+        "question": "¿Ofrecen soporte después del desarrollo?",
+        "answer": "Todos los proyectos incluyen 30 días de soporte. También ofrecemos mantenimiento mensual opcional para actualizaciones y mejoras."
+      },
+      "payments": {
+        "question": "¿Cómo funcionan los pagos?",
+        "answer": "Para sitios pequeños el pago es 50% al iniciar y 50% al finalizar. En proyectos a medida se divide por hitos según cada fase del desarrollo."
+      }
+    }
+  },
+  "contact": {
+    "title": "¿Listo para lanzar tu próximo proyecto?",
+    "subtitle": "Cuéntanos sobre tu idea y te ayudaremos a hacerla realidad",
+    "schedule": {
+      "title": "Agenda una llamada",
+      "description": "Conversemos sobre tu proyecto en una videollamada de 30 minutos",
+      "cta": "Agendar"
+    },
+    "email": {
+      "title": "Escríbenos",
+      "description": "Envíanos un correo y te responderemos en menos de 24 horas",
+      "cta": "Enviar correo"
+    },
+    "form": {
+      "title": "Déjanos un mensaje",
+      "name": "Nombre",
+      "email": "Email",
+      "phone": "Número de celular",
+      "phonePlaceholder": "Ej: +52 33 1234 5678",
+      "projectType": "Tipo de proyecto",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos sobre tu proyecto...",
+      "recaptchaNotice": "Este sitio está protegido por reCAPTCHA y aplican la",
+      "privacyPolicy": "Política de Privacidad",
+      "and": "y los",
+      "termsOfService": "Términos del Servicio",
+      "ofGoogle": "de Google.",
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando...",
+      "projectTypes": {
+        "landing": "Landing Page",
+        "webapp": "Web App",
+        "ecommerce": "E-commerce",
+        "other": "Otro"
+      },
+      "validation": {
+        "nameRequired": "El nombre es obligatorio",
+        "emailInvalid": "Ingresa un email válido",
+        "phoneInvalid": "Ingresa un número de celular válido",
+        "projectTypeRequired": "Selecciona un tipo de proyecto",
+        "messageRequired": "Cuéntanos un poco más sobre tu proyecto"
+      },
+      "success": "¡Gracias por tu mensaje! Te contactaré pronto.",
+      "error": "Error al enviar el formulario. Intenta de nuevo más tarde.",
+      "errorUnexpected": "Ocurrió un error inesperado. Intenta de nuevo más tarde.",
+      "privacyNotice": "Al enviar este formulario aceptas nuestro",
+      "privacyLink": "Aviso de privacidad"
+    }
+  },
+  "footer": {
+    "description": "Desarrollo web enfocado en performance, diseño y deploy en la nube.",
+    "navigation": "Navegación",
+    "contactTitle": "Contacto",
+    "contactDescription": "¿Tienes un proyecto en mente? Escríbenos y lo platicamos.",
+    "sendEmail": "Enviar correo",
+    "followUs": "Síguenos",
+    "copyright": "Orbit. Todos los derechos reservados.",
+    "madeWith": "Hecho con React, MUI y mucho café ☕",
+    "privacyPolicy": "Aviso de privacidad"
+  },
+  "floatingWhatsApp": {
+    "tooltip": "Contactar",
+    "defaultMessage": "Hola, me gustaría agendar una llamada"
+  },
+  "privacy": {
+    "title": "Aviso de Privacidad",
+    "lastUpdated": "Última actualización",
+    "intro": "En Orbit, respetamos tu privacidad y nos comprometemos a proteger tus datos personales. Este aviso describe cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestros servicios o te comunicas con nosotros.",
+    "dataCollected": {
+      "title": "1. Datos que Recopilamos",
+      "description": "Podemos recopilar los siguientes tipos de información personal cuando interactúas con nuestro sitio web o servicios:",
+      "items": [
+        "Nombre completo",
+        "Dirección de correo electrónico",
+        "Número de teléfono",
+        "Información del proyecto (tipo de proyecto, presupuesto, descripción)",
+        "Datos técnicos (dirección IP, tipo de navegador, páginas visitadas)"
+      ]
+    },
+    "purpose": {
+      "title": "2. Finalidad del Tratamiento de Datos",
+      "description": "Utilizamos tus datos personales para los siguientes propósitos:",
+      "items": [
+        "Responder a tus consultas y solicitudes de información",
+        "Proporcionar cotizaciones y propuestas de proyectos",
+        "Mejorar nuestros servicios y experiencia de usuario",
+        "Enviar comunicaciones relacionadas con tu proyecto",
+        "Cumplir con obligaciones legales y fiscales"
+      ]
+    },
+    "retention": {
+      "title": "3. Conservación de Datos",
+      "description": "Conservaremos tus datos personales únicamente durante el tiempo necesario para cumplir con las finalidades descritas o según lo requiera la ley. Una vez cumplido el propósito, procederemos a la eliminación segura de tu información."
+    },
+    "rights": {
+      "title": "4. Tus Derechos",
+      "description": "Como titular de datos personales, tienes derecho a:",
+      "items": [
+        "Acceder a tus datos personales que tenemos registrados",
+        "Rectificar datos inexactos o incompletos",
+        "Cancelar (eliminar) tus datos de nuestros registros",
+        "Oponerte al tratamiento de tus datos para fines específicos",
+        "Revocar tu consentimiento en cualquier momento"
+      ]
+    },
+    "contact": {
+      "title": "5. Contacto",
+      "description": "Si tienes preguntas sobre este aviso de privacidad o deseas ejercer tus derechos, puedes contactarnos a través del formulario de contacto en nuestro sitio web o enviando un correo a la dirección indicada en la página de contacto."
+    },
+    "backToHome": "Volver al inicio"
+  }
+}

@@ -1,0 +1,165 @@
+@startuml Orbit Architecture Overview
+
+title Orbit - High-Level Architecture Overview
+
+skinparam componentStyle rectangle
+skinparam defaultTextAlignment center
+
+cloud "Internet" as Internet {
+  actor "👤 Usuarios Web" as Users
+  actor "📧 Clientes Email" as EmailUsers
+}
+
+package "AWS Cloud (us-east-1)" {
+  
+  ' ===== DNS & CDN =====
+  rectangle "**DNS & Edge**" as Edge #LightBlue {
+    component "Route 53" as R53 {
+      [DNS Records]
+      [MX Records]
+      [TXT Records]
+    }
+    
+    component "CloudFront" as CF {
+      [CDN Distribution]
+      [TLS Certificate\n(ACM)]
+      [Cache & Compression]
+      [Security Headers]
+    }
+  }
+  
+  ' ===== Frontend =====
+  rectangle "**Frontend**" as FE #LightGreen {
+    database "S3 Bucket" as S3 {
+      [React App\n(Static Files)]
+    }
+  }
+  
+  ' ===== Backend API =====
+  rectangle "**Backend API**" as API #LightYellow {
+    component "API Gateway" as APIGW {
+      [POST /contact]
+      [CORS Config]
+      [Rate Limiting]
+    }
+    
+    component "Lambda\nContact Form" as L1 {
+      [Python 3.12]
+      [reCAPTCHA\nValidation]
+    }
+  }
+  
+  ' ===== Email Service =====
+  rectangle "**Email Service**" as EmailSvc #LightCoral {
+    component "Lambda\nEmail Dispatcher" as L2 {
+      [Python 3.12]
+      [SES Integration]
+    }
+    
+    component "Amazon SES" as SES {
+      [Email Templates]
+      [Domain Verified]
+      [DKIM Enabled]
+    }
+    
+    component "SNS Topics" as SNS {
+      [Bounces]
+      [Complaints]
+      [Deliveries]
+    }
+  }
+  
+  ' ===== Monitoring =====
+  rectangle "**Monitoring & Security**" as Monitor #LightGray {
+    component "CloudWatch" as CW {
+      [Lambda Logs]
+      [API Metrics]
+    }
+    
+    component "IAM Roles" as IAM {
+      [Lambda Execution]
+      [SES Permissions]
+      [Logs Access]
+    }
+  }
+  
+  ' ===== External Services =====
+  cloud "External Services" {
+    component "Google\nreCAPTCHA" as Recaptcha
+    component "Zoho Mail" as Zoho
+  }
+}
+
+' ===== CONNECTIONS =====
+
+' User to Frontend
+Users -down-> R53 : "DNS Query"
+R53 -down-> CF : "Route to CDN"
+CF -down-> S3 : "Fetch Files\n(OAC)"
+S3 -up-> CF : "Static Content"
+CF -up-> Users : "HTTPS\nResponse"
+
+' User to API
+Users -down-> APIGW : "POST /contact"
+APIGW -down-> L1 : "Invoke"
+L1 -right-> Recaptcha : "Verify Token"
+L1 -down-> L2 : "Send Emails"
+
+' Email Flow
+L2 -down-> SES : "Send Templates"
+SES -down-> EmailUsers : "Deliver Emails"
+SES -right-> SNS : "Events"
+
+' Monitoring
+L1 .right.> CW : "logs"
+L2 .right.> CW : "logs"
+L1 .down.> IAM : "uses"
+L2 .down.> IAM : "uses"
+
+' DNS for Email
+R53 -down-> Zoho : "MX Records\n(Corporate Email)"
+R53 .down.> SES : "Verification\nDKIM, SPF"
+
+note top of Edge
+  **Entry Point**
+  All traffic enters through
+  Route 53 and CloudFront
+end note
+
+note right of API
+  **Serverless Backend**
+  - API Gateway HTTP API
+  - Lambda functions
+  - No servers to manage
+end note
+
+note bottom of EmailSvc
+  **Email Templates**
+  1. ContactAckTemplate
+     (Customer confirmation)
+  2. VendorNotifyTemplate
+     (Sales notification)
+end note
+
+legend bottom
+  |= Layer |= Purpose |= Key Features |
+  | **DNS & Edge** | Global distribution | Route 53, CloudFront CDN, ACM |
+  | **Frontend** | Static website | React app in S3, cached by CF |
+  | **Backend API** | Contact form | API Gateway + Lambda, reCAPTCHA |
+  | **Email Service** | Transactional emails | Lambda + SES + Templates |
+  | **Monitoring** | Observability | CloudWatch Logs, IAM security |
+  
+  **Tech Stack**
+  Frontend: React + Vite + Material UI
+  Backend: Python 3.12 Lambdas
+  IaC: Terraform
+  Email: Amazon SES with DKIM
+  
+  **Cost Optimization**
+  - Serverless (pay per use)
+  - CloudFront PriceClass_100
+  - No EC2 instances
+  - S3 without versioning
+endlegend
+
+@enduml

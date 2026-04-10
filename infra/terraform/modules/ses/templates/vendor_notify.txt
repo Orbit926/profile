@@ -1,0 +1,11 @@
+Nuevo mensaje desde el formulario de contacto
+
+Nombre: {{name}}
+Correo: {{email}}
+Teléfono: {{phone}}
+Asunto: {{projectType}}
+
+Mensaje:
+{{message}}
+
+— Enviado automáticamente desde el formulario de contacto de Devaltra

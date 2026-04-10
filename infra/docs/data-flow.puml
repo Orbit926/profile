@@ -1,0 +1,152 @@
+@startuml Contact Form Data Flow
+!theme aws-orange
+
+title Orbit - Contact Form Submission Flow
+
+actor "Usuario" as User
+participant "Frontend\n(React + Vite)" as Frontend
+participant "CloudFront\nCDN" as CF
+participant "S3\nStatic Site" as S3
+participant "API Gateway\n/contact" as APIGW
+participant "Lambda\nContact Form" as LambdaContact
+participant "Google\nreCAPTCHA" as Recaptcha
+participant "Lambda\nEmail Dispatcher" as LambdaEmail
+participant "Amazon SES\nEmail Service" as SES
+participant "Cliente Email" as EmailClient
+participant "SNS Topics\nEvents" as SNS
+participant "CloudWatch\nLogs" as CW
+
+== Initial Page Load ==
+
+User -> CF : 1. GET https://www.orbit.com.mx
+activate CF
+
+CF -> CF : Check Cache
+alt Cache Hit
+  CF --> User : Return Cached Content
+else Cache Miss
+  CF -> S3 : 2. Get index.html + assets
+  activate S3
+  S3 --> CF : 3. Return Files
+  deactivate S3
+  CF -> CF : Store in Cache
+  CF --> User : 4. Serve Page (HTTPS)
+end
+deactivate CF
+
+note right of User
+  Page loads with:
+  - React app
+  - Material UI
+  - Contact form
+  - reCAPTCHA widget
+end note
+
+== Form Submission ==
+
+User -> Frontend : 5. Fill Contact Form\n(name, email, phone, message)
+activate Frontend
+
+Frontend -> Frontend : 6. Client-side Validation\n(Zod schema)
+
+Frontend -> Recaptcha : 7. Execute reCAPTCHA v3
+activate Recaptcha
+Recaptcha --> Frontend : 8. Return Token
+deactivate Recaptcha
+
+Frontend -> APIGW : 9. POST /contact\n{\n  formData,\n  recaptchaToken\n}
+activate APIGW
+
+APIGW -> APIGW : 10. CORS Check\n(Allow: orbit.com.mx)
+
+APIGW -> APIGW : 11. Rate Limiting\n(1 req/s, burst 10)
+
+APIGW -> LambdaContact : 12. Invoke Lambda\n(Payload v2.0)
+activate LambdaContact
+
+LambdaContact -> CW : Log Request
+activate CW
+deactivate CW
+
+LambdaContact -> Recaptcha : 13. Verify Token\nwith Secret Key
+activate Recaptcha
+Recaptcha --> LambdaContact : 14. Validation Result\n(score, action, hostname)
+deactivate Recaptcha
+
+alt reCAPTCHA Score < 0.5 or Invalid
+  LambdaContact --> APIGW : 400 Bad Request\n"reCAPTCHA validation failed"
+  APIGW --> Frontend : Error Response
+  Frontend -> Frontend : Show Error Snackbar
+  Frontend --> User : "Error: reCAPTCHA failed"
+else reCAPTCHA Valid
+  
+  LambdaContact -> LambdaEmail : 15. InvokeFunction\n{\n  customerEmail,\n  formData\n}
+  activate LambdaEmail
+  
+  LambdaEmail -> CW : Log Email Request
+  activate CW
+  deactivate CW
+  
+  LambdaEmail -> SES : 16a. SendTemplatedEmail\nTemplate: ContactAckTemplate\nTo: customerEmail
+  activate SES
+  
+  SES -> EmailClient : 17a. Send Acknowledgment\nFrom: no-reply@orbit.com.mx\nSubject: "Hemos recibido tu mensaje"
+  activate EmailClient
+  deactivate EmailClient
+  
+  SES -> SNS : Delivery Event
+  activate SNS
+  deactivate SNS
+  
+  LambdaEmail -> SES : 16b. SendTemplatedEmail\nTemplate: VendorNotifyTemplate\nTo: ventas@orbit.com.mx
+  
+  SES -> EmailClient : 17b. Send Notification\nFrom: contacto@orbit.com.mx\nSubject: "Nuevo contacto"
+  activate EmailClient
+  deactivate EmailClient
+  
+  SES -> SNS : Delivery Event
+  activate SNS
+  deactivate SNS
+  
+  SES --> LambdaEmail : 18. Email Sent Successfully
+  deactivate SES
+  
+  LambdaEmail --> LambdaContact : 19. Success Response
+  deactivate LambdaEmail
+  
+  LambdaContact -> CW : Log Success
+  activate CW
+  deactivate CW
+  
+  LambdaContact --> APIGW : 20. 200 OK\n{ message: "success" }
+  deactivate LambdaContact
+  
+  APIGW --> Frontend : 21. Success Response
+  deactivate APIGW
+  
+  Frontend -> Frontend : 22. Show Success Snackbar
+  Frontend -> Frontend : 23. Reset Form
+  Frontend --> User : 24. "¡Mensaje enviado!\nRecibirás una confirmación."
+  deactivate Frontend
+end
+
+== Error Scenarios ==
+
+note over SES, SNS
+  **If Email Fails**
+  - SES sends Bounce event to SNS
+  - SNS Topic: ses-bounces
+  - Lambda logs error to CloudWatch
+  - API returns 500 error
+  - Frontend shows error message
+end note
+
+note over LambdaContact, CW
+  **Monitoring**
+  - All Lambda invocations logged
+  - CloudWatch retention: 30 days
+  - API Gateway throttling metrics
+  - SES sending statistics
+end note
+
+@enduml
