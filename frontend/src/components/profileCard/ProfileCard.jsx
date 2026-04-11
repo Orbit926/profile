@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import './ProfileCard.css';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
@@ -38,6 +38,7 @@ const ProfileCardComponent = ({
 }) => {
   const wrapRef = useRef(null);
   const shellRef = useRef(null);
+  const [avatarLoaded, setAvatarLoaded] = useState(false);
 
   const enterTimerRef = useRef(null);
   const leaveRafRef = useRef(null);
@@ -317,11 +318,16 @@ const ProfileCardComponent = ({
                 className="avatar"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
-                loading="lazy"
-                onLoad={() => console.log('Avatar loaded successfully:', avatarUrl)}
+                loading="eager"
+                style={{ opacity: avatarLoaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
+                onLoad={() => {
+                  console.log('Avatar loaded successfully:', avatarUrl);
+                  setAvatarLoaded(true);
+                }}
                 onError={e => {
                   const t = e.target;
                   console.error('Avatar failed to load:', avatarUrl);
+                  setAvatarLoaded(true);
                   t.style.opacity = '0.3';
                   t.style.filter = 'blur(2px)';
                 }}
