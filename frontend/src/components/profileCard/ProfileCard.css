@@ -265,8 +265,7 @@
 }
 
 @media (max-width: 768px) {
-  .pc-avatar-content .avatar {
-    filter: grayscale(1) contrast(1.1);
+  .pc-avatar-content {
     mix-blend-mode: normal;
   }
 }
