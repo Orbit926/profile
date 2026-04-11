@@ -84,7 +84,7 @@ const ContactCTA = () => {
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
               {t('contact.title')}
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 500, mx: 'auto' }}>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 500, textAlign: 'center' }}>
               {t('contact.subtitle')}
             </Typography>
           </Stack>

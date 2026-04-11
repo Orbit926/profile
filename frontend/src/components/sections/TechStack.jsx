@@ -6,10 +6,20 @@ import {
   SiReact,
   SiJavascript,
   SiPython,
+  SiDjango,
+  SiFastapi,
+  SiFlask,
+  SiMui,
+  SiPostgresql,
+  SiMysql,
   SiDocker,
   SiTerraform,
   SiRedis,
   SiGit,
+  SiShopify,
+  SiGithub,
+  SiVercel,
+  SiLinux,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 
@@ -17,11 +27,21 @@ const technologies = [
   { name: 'React', icon: SiReact, color: '#61DAFB' },
   { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
   { name: 'Python', icon: SiPython, color: '#3776AB' },
+  { name: 'Django', icon: SiDjango, color: '#0C4B33' },
+  { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
+  { name: 'Flask', icon: SiFlask, color: '#FFFFFF' },
+  { name: 'Material UI', icon: SiMui, color: '#007FFF' },
+  { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+  { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
   { name: 'AWS', icon: FaAws, color: '#FF9900' },
   { name: 'Docker', icon: SiDocker, color: '#2496ED' },
   { name: 'Terraform', icon: SiTerraform, color: '#7B42BC' },
   { name: 'Redis', icon: SiRedis, color: '#DC382D' },
   { name: 'Git', icon: SiGit, color: '#F05032' },
+  { name: 'GitHub', icon: SiGithub, color: '#E6E8EE' },
+  { name: 'Linux', icon: SiLinux, color: '#FCC624' },
+  { name: 'Shopify', icon: SiShopify, color: '#96BF48' },
+  { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },
 ];
 
 const containerVariants = {
@@ -58,7 +78,7 @@ const TechStack = () => {
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
               {t('techStack.title')}
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, textAlign: 'center' }}>
               {t('techStack.subtitle')}
             </Typography>
           </Stack>
@@ -71,14 +91,12 @@ const TechStack = () => {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
           sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: 'repeat(2, 1fr)',
-              sm: 'repeat(4, 1fr)',
-            },
+            display: 'flex',
+            flexWrap: 'wrap',
             gap: 3,
-            maxWidth: 800,
+            maxWidth: 900,
             mx: 'auto',
+            justifyContent: 'center',
           }}
         >
           {technologies.map((tech) => {
@@ -96,6 +114,8 @@ const TechStack = () => {
                 elevation={0}
                 sx={{
                   p: 3,
+                  width: { xs: 'calc(50% - 12px)', sm: 'calc(33.333% - 16px)', md: 'calc(25% - 18px)' },
+                  minWidth: 140,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',

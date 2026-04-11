@@ -12,16 +12,20 @@
   },
   "hero": {
     "greeting": "Hola, soy Gabriel Garcia Cortes",
-    "headline": "Construyendo aplicaciones escalables en la nube",
-    "subheadline": "Cloud Fullstack Developer especializado en React, AWS y arquitecturas modernas",
-    "supporting": "Diseño y desarrollo soluciones end-to-end combinando frontend, backend e infraestructura cloud para construir productos escalables del mundo real.",
+    "headline1": "Construyendo aplicaciones",
+    "headline2": "escalables en la nube",
+    "subheadline1": "Cloud Fullstack Developer especializado",
+    "subheadline2": "en React, AWS y arquitecturas modernas",
+    "supporting1": "Diseño y desarrollo soluciones end-to-end",
+    "supporting2": "combinando frontend, backend e infraestructura cloud",
+    "supporting3": "para construir productos escalables del mundo real.",
     "ctaProjects": "Ver Proyectos",
     "ctaCV": "Descargar CV",
     "ctaContact": "Contactar"
   },
   "about": {
     "title": "Sobre Mi",
-    "description": "Gabriel Garcia Cortes es un Cloud Fullstack Developer enfocado en construir aplicaciones web escalables y centradas en el usuario. Actualmente trabaja como IT Intern en Chivas, mientras desarrolla proyectos freelance usando React, Python y tecnologias cloud.",
+    "description": "Soy un Cloud Fullstack Developer enfocado en construir aplicaciones web escalables y centradas en el usuario. Actualmente trabajo como IT Intern en Chivas, mientras desarrollo proyectos freelance usando React, Python y tecnologias cloud.",
     "highlights": {
       "frontend": {
         "title": "Frontend",
@@ -115,7 +119,11 @@
   },
   "impact": {
     "title": "Impacto y Resultados",
-    "subtitle": "Resultados tangibles de mi trabajo",
+    "subtitle": "Metricas clave de mis proyectos",
+    "apps": {
+      "value": "5+",
+      "label": "Aplicaciones Desplegadas"
+    },
     "items": {
       "deployed": {
         "title": "Aplicaciones Desplegadas",

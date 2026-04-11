@@ -35,11 +35,11 @@ const ProjectImpact = () => {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
         >
-          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center' }}>
+          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
               {t('impact.title')}
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 500, mx: 'auto' }}>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 500, textAlign: 'center' }}>
               {t('impact.subtitle')}
             </Typography>
           </Stack>

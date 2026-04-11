@@ -1,5 +1,5 @@
 // Hero.jsx
-import { Typography, Button, Box, Stack, Grid } from '@mui/material';
+import { Typography, Button, Box, Stack, Grid, useMediaQuery } from '@mui/material';
 import { Download, Visibility } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
@@ -35,6 +35,7 @@ const itemVariants = {
 const Hero = () => {
   const theme = useTheme();
   const { t } = useTranslation('common');
+  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -147,19 +148,29 @@ const Hero = () => {
               <Typography
                 component={motion.h1}
                 variants={itemVariants}
-                variant="h1"
+                variant="p"
                 sx={{
-                  fontSize: { xs: '2.2rem', md: '3rem', lg: '3.6rem' },
+                  fontSize: { xs: '22px', sm: '32px', lg: '35px' },
                   fontWeight: 800,
                   letterSpacing: '-0.03em',
                   lineHeight: 1.1,
-                  background: 'linear-gradient(135deg, #e6e8ee 0%, #a46be3 50%, #5d5fe9 100%)',
+                  background: '#e6e8ee',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                {t('hero.headline')}
+                {isDesktop ? (
+                  <>
+                    {t('hero.headline1')} {t('hero.headline2')}
+                  </>
+                ) : (
+                  <>
+                    {t('hero.headline1')}
+                    <br />
+                    {t('hero.headline2')}
+                  </>
+                )}
               </Typography>
 
               {/* Subheadline */}
@@ -168,13 +179,16 @@ const Hero = () => {
                 variants={itemVariants}
                 variant="h5"
                 sx={{
-                  fontSize: { xs: '1.1rem', md: '1.35rem' },
+                  fontSize: { xs: '18px', md: '22px' },
                   fontWeight: 500,
                   color: 'primary.light',
                   maxWidth: 700,
+                  display: { xs: 'none', sm: 'block' },
                 }}
               >
-                {t('hero.subheadline')}
+                {t('hero.subheadline1')}
+                <br />
+                {t('hero.subheadline2')}
               </Typography>
 
               {/* Supporting text */}
@@ -184,12 +198,17 @@ const Hero = () => {
                 variant="body1"
                 color="text.secondary"
                 sx={{
+                  display: { xs: 'none', sm: 'block' },
                   maxWidth: 620,
                   lineHeight: 1.7,
-                  fontSize: { xs: '0.95rem', md: '1.05rem' },
+                  fontSize: { xs: '15px', md: '17px' },
                 }}
               >
-                {t('hero.supporting')}
+                {t('hero.supporting1')}
+                <br />
+                {t('hero.supporting2')}
+                <br />
+                {t('hero.supporting3')}
               </Typography>
 
               {/* CTA Buttons */}
@@ -210,12 +229,13 @@ const Hero = () => {
                   startIcon={<Visibility />}
                   sx={{
                     pointerEvents: 'auto',
-                    px: 4,
-                    py: 1.3,
+                    px: { xs: 2, sm: 4 },
+                    py: { xs: 1.2, sm: 1.3 },
                     borderRadius: 999,
                     fontWeight: 700,
-                    fontSize: '0.95rem',
+                    fontSize: '15px',
                     boxShadow: '0 8px 32px rgba(125,63,185,0.4)',
+                    display: { xs: 'none', sm: 'inline-flex' },
                   }}
                 >
                   {t('hero.ctaProjects')}
@@ -235,7 +255,7 @@ const Hero = () => {
                     py: 1.3,
                     borderRadius: 999,
                     fontWeight: 700,
-                    fontSize: '0.95rem',
+                    fontSize: '15px',
                     borderColor: 'rgba(255,255,255,0.2)',
                     color: 'text.primary',
                     backdropFilter: 'blur(10px)',
