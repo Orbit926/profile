@@ -260,6 +260,20 @@
   backface-visibility: hidden;
   will-change: transform;
   transition: transform 120ms ease-out;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media (max-width: 768px) {
+  .pc-avatar-content {
+    mix-blend-mode: normal;
+  }
+  
+  .pc-avatar-content .avatar {
+    position: relative;
+    bottom: 0;
+    transform: translateX(-50%) !important;
+  }
 }
 
 .pc-avatar-content::before {

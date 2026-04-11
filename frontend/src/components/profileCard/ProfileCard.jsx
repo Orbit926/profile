@@ -318,6 +318,7 @@ const ProfileCardComponent = ({
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
                 loading="lazy"
+                onLoad={() => console.log('Avatar loaded successfully:', avatarUrl)}
                 onError={e => {
                   const t = e.target;
                   console.error('Avatar failed to load:', avatarUrl);
