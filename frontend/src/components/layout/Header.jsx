@@ -187,9 +187,10 @@ const Header = () => {
                     color="inherit"
                     onClick={() => scrollTo(sec.id)}
                     sx={{
-                      fontSize: '0.9rem',
-                      px: { sm: 1.5, md: 2 },
+                      fontSize: { sm: '0.8rem', md: '0.9rem' },
+                      px: { sm: 1, md: 1.8 },
                       textTransform: 'none',
+                      whiteSpace: 'nowrap',
                       position: 'relative',
                       fontWeight: isActive ? 700 : 400,
                       '&:hover::after': {

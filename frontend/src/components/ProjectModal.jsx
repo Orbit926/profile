@@ -61,6 +61,8 @@ const ContentBlock = ({ children, accentColor }) => (
       borderRadius: 2,
       background: 'rgba(255,255,255,0.03)',
       border: `1px solid ${accentColor}20`,
+      height: '100%',
+      boxSizing: 'border-box',
     }}
   >
     {children}
@@ -171,8 +173,8 @@ const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
             <Stack spacing={4}>
 
               {/* Problem + Solution */}
-              <Grid container spacing={3}>
-                <Grid size={{ xs: 12, md: 6 }}>
+              <Grid container spacing={3} alignItems="stretch">
+                <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', flexDirection: 'column' }}>
                   <SectionLabel icon={ErrorOutline} label="Problem" color="#e57373" />
                   <ContentBlock accentColor="#e57373">
                     <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
@@ -180,7 +182,7 @@ const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
                     </Typography>
                   </ContentBlock>
                 </Grid>
-                <Grid size={{ xs: 12, md: 6 }}>
+                <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', flexDirection: 'column' }}>
                   <SectionLabel icon={Lightbulb} label="Solution" color="#81c784" />
                   <ContentBlock accentColor="#81c784">
                     <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
@@ -264,14 +266,14 @@ const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
               <Divider sx={{ borderColor: `${accentColor}15` }} />
 
               {/* Challenges + Results */}
-              <Grid container spacing={3}>
-                <Grid size={{ xs: 12, md: 6 }}>
+              <Grid container spacing={3} alignItems="stretch">
+                <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', flexDirection: 'column' }}>
                   <SectionLabel icon={Warning} label="Challenges" color="#ffb74d" />
                   <ContentBlock accentColor="#ffb74d">
                     <BulletList items={challenges} accentColor="#ffb74d" />
                   </ContentBlock>
                 </Grid>
-                <Grid size={{ xs: 12, md: 6 }}>
+                <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', flexDirection: 'column' }}>
                   <SectionLabel icon={TrendingUp} label="Results / Impact" color="#81c784" />
                   <ContentBlock accentColor="#81c784">
                     <BulletList items={results} accentColor="#81c784" />
