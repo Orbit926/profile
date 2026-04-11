@@ -2,6 +2,8 @@ import { Container, Typography, Box, Stack, Paper, Grid } from '@mui/material';
 import { Code, Storage, Cloud } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import ProfileCard from '../profileCard/ProfileCard';
+import { useTheme } from '@mui/material';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -165,6 +167,22 @@ const About = () => {
                 }}
               >
                 {/* Placeholder para tu foto */}
+              <ProfileCard
+                  name="Gabriel G. Cortés"
+                  title="Cloud Full-Stack Developer"
+                  handle="gabrielgcortes"
+                  status="Online"
+                  contactText="Contact Me"
+                  avatarUrl="/img/avatar/avatar.png"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  onContactClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  behindGlowColor="transparent"
+                  iconUrl="/assets/demo/iconpattern.png"
+                  behindGlowEnabled
+                  innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+                />
               </Paper>
             </motion.div>
           </Grid>

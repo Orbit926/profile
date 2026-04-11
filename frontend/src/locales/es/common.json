@@ -69,7 +69,75 @@
     "viewDemo": "Ver Demo",
     "viewCode": "Ver Código",
     "viewDetails": "Estudio de Caso",
-    "openProject": "Abrir proyecto"
+    "openProject": "Abrir proyecto",
+    "modal": {
+      "orbit": {
+        "problem": "Orbit necesitaba una landing page moderna que comunicara claramente su propuesta de valor y gestionara envíos del formulario de contacto sin depender de un servidor backend tradicional.",
+        "solution": "Se construyó una landing page con React, un sistema de diseño personalizado con Material UI y animaciones con Framer Motion, usando un formulario de contacto serverless en AWS con envío de emails automatizado mediante Zoho.",
+        "decisions": [
+          "Se eligió una arquitectura serverless con AWS Lambda y API Gateway para el formulario de contacto, evitando mantener un servidor dedicado y reduciendo costos de infraestructura.",
+          "Se usó AWS S3 y CloudFront para el hosting, proporcionando distribución de contenido estático eficiente y escalable.",
+          "Se integró Zoho Mail para el envío automático de emails al no tener acceso a producción de AWS SES.",
+          "Se usó Terraform para provisionar y gestionar la infraestructura cloud de forma reproducible."
+        ],
+        "challenges": [
+          "Integrar Zoho Mail para emails automáticos al no obtener acceso a producción de AWS SES por restricciones de reputación del dominio.",
+          "Configurar API Gateway y Lambda para procesar y validar correctamente las solicitudes del formulario de contacto.",
+          "Asegurar la correcta configuración de CORS entre el frontend y API Gateway en producción."
+        ],
+        "results": [
+          "Plataforma en producción en orbit.com.mx.",
+          "Backend serverless con mantenimiento mínimo de infraestructura.",
+          "Formulario de contacto confiable con notificaciones automáticas por email.",
+          "Experiencia bilingüe con soporte en inglés y español."
+        ]
+      },
+      "greenpaw": {
+        "problem": "Greenpaw necesitaba una tienda online personalizada que reflejara su identidad de marca de forma más efectiva que un tema estándar de Shopify.",
+        "solution": "Se construyó un storefront headless de Shopify con React y Material UI, manteniendo Shopify como motor de comercio mientras se habilitaba una experiencia frontend completamente personalizada.",
+        "decisions": [
+          "Se eligió Shopify headless en lugar de un tema estándar para conservar el Shopify Admin mientras se permite código frontend completamente personalizado.",
+          "Se usó GraphQL a través de la Shopify Storefront API para la obtención flexible de datos de productos, carrito y checkout.",
+          "Se alojó el storefront en AWS S3 y CloudFront para distribución estática escalable.",
+          "Se usó Terraform para provisionar y gestionar los recursos cloud de forma consistente."
+        ],
+        "challenges": [
+          "Gestionar el estado del carrito en el storefront sin una sesión de backend tradicional.",
+          "Gestionar la redirección al checkout de Shopify preservando una experiencia de usuario consistente.",
+          "Transferir el dominio desde Shopify y configurarlo en AWS Route 53 con la configuración DNS correcta."
+        ],
+        "results": [
+          "Tienda e-commerce activa en greenpaw.mx.",
+          "Experiencia de compra con marca propia, más allá de las limitaciones de un tema estándar de Shopify.",
+          "Gestión de comercio amigable para el cliente a través del Shopify Admin.",
+          "Hosting e infraestructura cloud gestionados en AWS."
+        ]
+      },
+      "flixy": {
+        "problem": "Se necesitaba construir una plataforma de video completa capaz de gestionar subidas, streaming, moderación y analíticas, operando bajo restricciones de hardware limitado.",
+        "solution": "Se construyó una plataforma de video estilo YouTube con frontend en HTML, CSS y JavaScript puro, backend en Django, colas de subida con Redis, procesamiento de video HLS, almacenamiento y distribución en AWS, y herramientas administrativas para moderación y analíticas.",
+        "decisions": [
+          "Se usó Django para soportar un backend más completo con autenticación, flujos de moderación y funcionalidades basadas en base de datos.",
+          "Se implementaron colas Redis para controlar la concurrencia de subidas y evitar sobrecargar la Raspberry Pi durante el procesamiento HLS.",
+          "Se limitó el backend a procesar solo dos subidas simultáneas para proteger la estabilidad del sistema bajo cargas de procesamiento pesadas.",
+          "Se devolvieron partes del video y URLs prefirmadas de S3 al frontend para que los clientes subieran directamente a S3, reduciendo la carga del backend.",
+          "Se usó CloudFront frente a S3 para mejorar el rendimiento de entrega de video y optimizar costos."
+        ],
+        "challenges": [
+          "Procesar subidas de video HLS en hardware Raspberry Pi limitado sin que el sistema fallara.",
+          "Diseñar un flujo de subida basado en colas con Redis para gestionar solicitudes concurrentes de forma segura.",
+          "Implementar subidas directas a S3 con URLs prefirmadas manteniendo una experiencia de cliente fluida.",
+          "Configurar SSL con Certbot y exponer la plataforma de forma segura desde un entorno alojado en casa."
+        ],
+        "results": [
+          "Plataforma de video completa con capacidades de streaming, moderación y analíticas.",
+          "Panel de moderación donde los administradores pueden aprobar o rechazar videos, moderar comentarios y banear usuarios.",
+          "Funcionalidades para usuarios: suscripciones a canales, me gusta/no me gusta y foros de comentarios por video.",
+          "Dashboard de Power BI para visualizar estadísticas de la plataforma e insights de uso.",
+          "Reducción del estrés del backend mediante colas Redis y subidas directas de clientes a S3."
+        ]
+      }
+    }
   },
   "experience": {
     "title": "Experiencia",

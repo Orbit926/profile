@@ -41,7 +41,7 @@ const ProjectsPreview = () => {
     },
     {
       key: 'flixy',
-      tech: ['React', 'Frontend Architecture', 'Responsive UI'],
+      tech: ['HTML', 'CSS', 'JavaScript', 'Django', 'Redis', 'AWS'],
       gradient: 'linear-gradient(135deg, rgba(233,93,95,0.2) 0%, rgba(185,63,125,0.1) 100%)',
       accentColor: '#e91e63',
     },

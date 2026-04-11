@@ -25,6 +25,7 @@ import {
   CheckCircleOutline,
 } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { personalConfig } from '../config/data';
 
 const SectionLabel = ({ icon: Icon, label, color = '#a46be3' }) => (
@@ -84,10 +85,16 @@ const BulletList = ({ items, accentColor }) => (
 
 const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
   const [imgErrors, setImgErrors] = useState({});
+  const { t } = useTranslation('common');
 
   if (!project || !projectData) return null;
 
-  const { problem, solution, architecture, decisions, challenges, results, tech, screenshots } = projectData;
+  const { i18nKey, architecture, tech, screenshots } = projectData;
+  const problem = t(`${i18nKey}.problem`);
+  const solution = t(`${i18nKey}.solution`);
+  const decisions = t(`${i18nKey}.decisions`, { returnObjects: true });
+  const challenges = t(`${i18nKey}.challenges`, { returnObjects: true });
+  const results = t(`${i18nKey}.results`, { returnObjects: true });
 
   return (
     <AnimatePresence>
