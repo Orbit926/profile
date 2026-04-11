@@ -121,7 +121,7 @@
     "title": "Impacto y Resultados",
     "subtitle": "Metricas clave de mis proyectos",
     "apps": {
-      "value": "5+",
+      "value": "6+",
       "label": "Aplicaciones Desplegadas"
     },
     "items": {
@@ -152,6 +152,6 @@
     "description": "Cloud Fullstack Developer construyendo aplicaciones web escalables.",
     "navigation": "Navegacion",
     "copyright": "Gabriel Garcia Cortes. Todos los derechos reservados.",
-    "madeWith": "Construido con React, MUI y desplegado en AWS"
+    "madeWith": "Construido con React, MUI y desplegado en Vercel"
   }
 }

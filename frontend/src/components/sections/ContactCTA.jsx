@@ -1,5 +1,5 @@
 import { Container, Typography, Button, Box, Stack, Paper, Grid } from '@mui/material';
-import { Email, LinkedIn, GitHub, Download } from '@mui/icons-material';
+import { Email, LinkedIn, GitHub, Download, Code } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { personalConfig } from '../../config/data';
@@ -39,6 +39,14 @@ const ContactCTA = () => {
       label: t('contact.github'),
       href: personalConfig.github.url,
       color: '#e6e8ee',
+      variant: 'outlined',
+    },
+    {
+      key: 'leetcode',
+      icon: Code,
+      label: 'LeetCode',
+      href: personalConfig.leetcode.url,
+      color: '#FFA116',
       variant: 'outlined',
     },
     {

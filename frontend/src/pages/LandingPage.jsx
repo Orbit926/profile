@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Box, CircularProgress } from '@mui/material';
 import Header from '../components/layout/Header';
 import Hero from '../components/sections/Hero';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const About = lazy(() => import('../components/sections/About'));
 const TechStack = lazy(() => import('../components/sections/TechStack'));
@@ -45,6 +46,7 @@ const LandingPage = () => (
     <LazySection><ProjectImpact /></LazySection>
     <LazySection><ContactCTA /></LazySection>
     <LazySection><Footer /></LazySection>
+    <WhatsAppButton />
   </>
 );
 

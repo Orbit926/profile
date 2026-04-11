@@ -20,6 +20,7 @@ import {
   SiGithub,
   SiVercel,
   SiLinux,
+  SiN8N,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 
@@ -40,6 +41,7 @@ const technologies = [
   { name: 'Git', icon: SiGit, color: '#F05032' },
   { name: 'GitHub', icon: SiGithub, color: '#E6E8EE' },
   { name: 'Linux', icon: SiLinux, color: '#FCC624' },
+  { name: 'n8n', icon: SiN8N, color: '#EA4B71' },
   { name: 'Shopify', icon: SiShopify, color: '#96BF48' },
   { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },
 ];

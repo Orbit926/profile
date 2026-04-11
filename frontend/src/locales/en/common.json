@@ -121,7 +121,7 @@
     "title": "Impact & Results",
     "subtitle": "Key metrics from my projects",
     "apps": {
-      "value": "5+",
+      "value": "6+",
       "label": "Deployed Apps"
     },
     "items": {
@@ -152,6 +152,6 @@
     "description": "Cloud Fullstack Developer building scalable web applications.",
     "navigation": "Navigation",
     "copyright": "Gabriel Garcia Cortes. All rights reserved.",
-    "madeWith": "Built with React, MUI & deployed on AWS"
+    "madeWith": "Built with React, MUI & deployed on Vercel"
   }
 }

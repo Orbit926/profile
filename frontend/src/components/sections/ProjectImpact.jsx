@@ -16,7 +16,7 @@ const ProjectImpact = () => {
   const { t } = useTranslation('common');
 
   const items = [
-    { key: 'deployed', icon: RocketLaunch, color: '#4caf50', stat: '3+' },
+    { key: 'deployed', icon: RocketLaunch, color: '#4caf50', stat: '6+' },
     { key: 'cloud', icon: CloudDone, color: '#FF9900', stat: 'AWS' },
     { key: 'scalable', icon: Architecture, color: '#5d5fe9', stat: '100%' },
   ];
