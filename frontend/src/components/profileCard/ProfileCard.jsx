@@ -320,7 +320,9 @@ const ProfileCardComponent = ({
                 loading="lazy"
                 onError={e => {
                   const t = e.target;
-                  t.style.display = 'none';
+                  console.error('Avatar failed to load:', avatarUrl);
+                  t.style.opacity = '0.3';
+                  t.style.filter = 'blur(2px)';
                 }}
               />
               {showUserInfo && (
