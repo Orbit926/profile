@@ -1,30 +1,24 @@
-import { Container, Typography, Card, CardContent, Box, Stack, Chip, Grid } from '@mui/material';
-import { OpenInNew } from '@mui/icons-material';
+import { Container, Typography, Card, CardContent, Box, Stack, Chip, Grid, Button } from '@mui/material';
+import { OpenInNew, GitHub } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-
-// Los proyectos ahora vienen de i18n (datos dinámicos con tech estáticos)
+import { personalConfig } from '../../config/data';
 
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.2 },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     y: 0,
     scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.7, ease: 'easeOut' },
   },
 };
 
@@ -33,27 +27,27 @@ const ProjectsPreview = () => {
 
   const projects = [
     {
-      name: t('projects.devaltra.name'),
-      type: t('projects.devaltra.type'),
-      description: t('projects.devaltra.description'),
-      tech: ['React', 'MUI', 'Vercel', 'API Integration'],
-      gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
-      image: '/img/projects/devaltra-orbit.webp',
-      link: 'https://devaltra.vercel.app',
+      key: 'greenpaw',
+      tech: ['React', 'Shopify', 'Headless CMS', 'UX Design'],
+      gradient: 'linear-gradient(135deg, rgba(125,185,63,0.2) 0%, rgba(93,233,95,0.1) 100%)',
+      accentColor: '#4caf50',
     },
     {
-      name: t('projects.greenpaw.name'),
-      type: t('projects.greenpaw.type'),
-      description: t('projects.greenpaw.description'),
-      tech: ['React', 'MUI', 'Shopify'],
-      gradient: 'linear-gradient(135deg, rgba(125,185,63,0.2) 0%, rgba(93,233,95,0.1) 100%)',
-      image: '/img/projects/greenpaw-orbit.webp',
-      link: 'https://www.greenpaw.mx',
+      key: 'flixy',
+      tech: ['React', 'Frontend Architecture', 'Responsive UI'],
+      gradient: 'linear-gradient(135deg, rgba(233,93,95,0.2) 0%, rgba(185,63,125,0.1) 100%)',
+      accentColor: '#e91e63',
+    },
+    {
+      key: 'orbit',
+      tech: ['React', 'MUI', 'Design System', 'AWS'],
+      gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
+      accentColor: '#7d3fb9',
     },
   ];
 
   return (
-    <Box sx={{ py: 10, background: (theme) => theme.palette.background.default }}>
+    <Box id="projects" sx={{ py: { xs: 8, md: 12 }, background: (theme) => theme.palette.background.default }}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +55,7 @@ const ProjectsPreview = () => {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
         >
-          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center'}}>
+          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
               {t('projects.title')}
             </Typography>
@@ -80,144 +74,143 @@ const ProjectsPreview = () => {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
         >
-        {projects.map((project, index) => (
-          <Grid
-            key={index}
-            size={{ xs: 12, md: 6 }}
-            component={motion.div}
-            variants={itemVariants}
-          >
-            <Card
-              sx={{
-                height: '100%',
-                background: (theme) => theme.custom.cardGradient,
-                border: '1px solid',
-                borderColor: 'divider',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-                '&:hover': {
-                  borderColor: 'primary.main',
-                  transform: 'translateY(-8px)',
-                  '& .project-icon': {
-                    opacity: 1,
-                    transform: 'translate(0, 0)',
-                  },
-                },
-              }}
+          {projects.map((project) => (
+            <Grid
+              key={project.key}
+              size={{ xs: 12, md: 4 }}
+              component={motion.div}
+              variants={itemVariants}
             >
-              {/* Hacer TODA la tarjeta clickeable */}
-              <Box
-                component="a"
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Ir al proyecto ${project.name}`}
+              <Card
                 sx={{
-                  position: 'absolute',
-                  inset: 0,
-                  zIndex: 3,
-                  textDecoration: 'none',
-                }}
-              />
-
-              {/* Imagen de fondo */}
-              <Box
-                sx={{
-                  position: 'absolute',
-                  inset: 0,
-                  height: 120,
-                  overflow: 'hidden',
-                  zIndex: 0,
-                }}
-              >
-                <Box
-                  component="img"
-                  src={project.image}
-                  alt={project.name}
-                  loading="lazy"
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transform: 'scale(1.05)',
-                  }}
-                />
-              </Box>
-
-              {/* Icono hover — necesita stopPropagation */}
-              <Box
-                component="a"
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`${t('projects.openProject')} ${project.name}`}
-                className="project-icon"
-                sx={{
-                  position: 'absolute',
-                  top: 16,
-                  right: 16,
-                  width: 40,
-                  height: 40,
-                  borderRadius: '50%',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)',
+                  height: '100%',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  opacity: 0,
-                  transform: 'translate(10px, -10px)',
-                  transition: 'all 0.3s ease',
-                  zIndex: 4, // encima del overlay
-                  cursor: 'pointer',
-                  textDecoration: 'none',
+                  flexDirection: 'column',
+                  background: 'rgba(8, 10, 24, 0.6)',
+                  backdropFilter: 'blur(14px)',
+                  WebkitBackdropFilter: 'blur(14px)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.4s ease',
+                  '&:hover': {
+                    borderColor: project.accentColor,
+                    transform: 'translateY(-8px)',
+                    boxShadow: `0 16px 48px ${project.accentColor}25`,
+                  },
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 4,
+                    background: `linear-gradient(90deg, ${project.accentColor}, transparent)`,
+                  },
                 }}
               >
-                <OpenInNew sx={{ fontSize: 20, color: '#3b2e7a' }} />
-              </Box>
-
-              <CardContent sx={{ pt: 10, pb: 3, px: 3, position: 'relative', zIndex: 1 }}>
-                <Stack spacing={2}>
-                  <Box>
-                    <Chip
-                      label={project.type}
-                      size="small"
-                      sx={{
-                        background: '#3b2e7a',
-                        color: 'primary.light',
-                        fontWeight: 600,
-                        mb: 2,
-                      }}
-                    />
-                    <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-                      {project.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                      {project.description}
-                    </Typography>
-                  </Box>
-
-                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                    {project.tech.map((tech, techIndex) => (
+                <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                  <Stack spacing={2} sx={{ flexGrow: 1 }}>
+                    <Box>
                       <Chip
-                        key={techIndex}
-                        label={tech}
+                        label={t(`projects.${project.key}.type`)}
                         size="small"
-                        variant="outlined"
                         sx={{
-                          borderColor: 'divider',
-                          fontSize: '0.75rem',
+                          background: `${project.accentColor}20`,
+                          color: project.accentColor,
+                          fontWeight: 600,
+                          mb: 2,
+                          border: `1px solid ${project.accentColor}40`,
                         }}
                       />
-                    ))}
+                      <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+                        {t(`projects.${project.key}.name`)}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                        {t(`projects.${project.key}.description`)}
+                      </Typography>
+                    </Box>
+
+                    <Box
+                      sx={{
+                        p: 2,
+                        borderRadius: 2,
+                        background: 'rgba(125,63,185,0.06)',
+                        border: '1px solid rgba(255,255,255,0.05)',
+                      }}
+                    >
+                      <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        Impact
+                      </Typography>
+                      <Typography variant="body2" sx={{ mt: 0.5, fontWeight: 500 }}>
+                        {t(`projects.${project.key}.impact`)}
+                      </Typography>
+                    </Box>
+
+                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                      {project.tech.map((tech, techIndex) => (
+                        <Chip
+                          key={techIndex}
+                          label={tech}
+                          size="small"
+                          variant="outlined"
+                          sx={{ borderColor: 'divider', fontSize: '0.75rem' }}
+                        />
+                      ))}
+                    </Stack>
                   </Stack>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
+
+                  <Stack direction="row" spacing={1.5} sx={{ mt: 3 }}>
+                    {personalConfig.projects[project.key]?.demo && (
+                      <Button
+                        component="a"
+                        href={personalConfig.projects[project.key].demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="small"
+                        variant="contained"
+                        startIcon={<OpenInNew sx={{ fontSize: 16 }} />}
+                        sx={{
+                          flex: 1,
+                          borderRadius: 2,
+                          fontWeight: 600,
+                          fontSize: '0.8rem',
+                          textTransform: 'none',
+                          background: `${project.accentColor}`,
+                          '&:hover': { background: `${project.accentColor}cc` },
+                        }}
+                      >
+                        {t('projects.viewDemo')}
+                      </Button>
+                    )}
+                    {personalConfig.projects[project.key]?.github && (
+                      <Button
+                        component="a"
+                        href={personalConfig.projects[project.key].github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="small"
+                        variant="outlined"
+                        startIcon={<GitHub sx={{ fontSize: 16 }} />}
+                        sx={{
+                          flex: 1,
+                          borderRadius: 2,
+                          fontWeight: 600,
+                          fontSize: '0.8rem',
+                          textTransform: 'none',
+                          borderColor: 'rgba(255,255,255,0.15)',
+                          color: 'text.primary',
+                          '&:hover': { borderColor: project.accentColor, color: project.accentColor },
+                        }}
+                      >
+                        {t('projects.viewCode')}
+                      </Button>
+                    )}
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </Box>

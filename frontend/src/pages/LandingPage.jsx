@@ -1,52 +1,51 @@
 import { Suspense, lazy } from 'react';
-import { Box } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import Header from '../components/layout/Header';
 import Hero from '../components/sections/Hero';
-import { SnackbarProvider } from '../context/SnackbarContext';
 
-// Carga diferida (lazy)
 const About = lazy(() => import('../components/sections/About'));
-const ProjectsPreview = lazy(() => import('../components/sections/ProjectsPreview'));
-const Pricing = lazy(() => import('../components/sections/Pricing'));
-const Testimonials = lazy(() => import('../components/sections/Testimonials'));
-const Process = lazy(() => import('../components/sections/Process'));
 const TechStack = lazy(() => import('../components/sections/TechStack'));
-const FaqSection = lazy(() => import('../components/sections/FaqSection'));
+const ProjectsPreview = lazy(() => import('../components/sections/ProjectsPreview'));
+const Experience = lazy(() => import('../components/sections/Experience'));
+const Education = lazy(() => import('../components/sections/Education'));
+const WhyHireMe = lazy(() => import('../components/sections/WhyHireMe'));
+const ProjectImpact = lazy(() => import('../components/sections/ProjectImpact'));
 const ContactCTA = lazy(() => import('../components/sections/ContactCTA'));
 const Footer = lazy(() => import('../components/sections/Footer'));
-const FloatingWhatsApp = lazy(() => import('../components/layout/FloatingWhatsApp'));
 
-const LandingPage = () => {
-  return (
-    <SnackbarProvider>
-      <Box component="main" sx={{ minHeight: '100vh' }}>
-        <Header />
-        <Hero />
-        {/* Todo lo demás se carga en segundo plano */}
-        <Suspense fallback={null}>
-          <Box component="section" id="about">
-            <About />
-            <ProjectsPreview />
-          </Box>
-          <Box component="section" id="services">
-            {/* <Services /> */}
-            <Pricing />
-            <Testimonials />
-            <Process />
-            <TechStack />
-            <FaqSection />
-          </Box>
-          <Box component="section" id="contact">
-            <ContactCTA />
-          </Box>
-          <Box component="footer">
-            <Footer />
-          </Box>
-          <FloatingWhatsApp />
-        </Suspense>
+const LazySection = ({ children }) => (
+  <Suspense
+    fallback={
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          py: 10,
+        }}
+      >
+        <CircularProgress color="primary" />
       </Box>
-    </SnackbarProvider>
-  );
-};
+    }
+  >
+    {children}
+  </Suspense>
+);
+
+const LandingPage = () => (
+  <>
+    <Header />
+    <Hero />
+    <LazySection><About /></LazySection>
+    <LazySection><TechStack /></LazySection>
+    <LazySection><ProjectsPreview /></LazySection>
+    <LazySection><Experience /></LazySection>
+    <LazySection><Education /></LazySection>
+    <LazySection><WhyHireMe /></LazySection>
+    <LazySection><ProjectImpact /></LazySection>
+    <LazySection><ContactCTA /></LazySection>
+    <LazySection><Footer /></LazySection>
+  </>
+);
 
 export default LandingPage;

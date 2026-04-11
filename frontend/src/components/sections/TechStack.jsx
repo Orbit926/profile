@@ -1,46 +1,27 @@
 // TechStack.jsx
-import { Container, Typography, Box, Stack, Chip } from '@mui/material';
+import { Container, Typography, Box, Stack, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-
-// Iconos válidos
 import {
   SiReact,
-  SiVite,
-  SiMui,
+  SiJavascript,
   SiPython,
-  SiDjango,
-  SiFastapi,
-  SiVercel,
-  SiNetlify,
-  SiPostgresql,
-  SiMongodb,
-  SiStripe,
-  SiShopify,
+  SiDocker,
+  SiTerraform,
+  SiRedis,
+  SiGit,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 
 const technologies = [
-  { name: 'React', category: 'Frontend', icon: SiReact },
-  { name: 'Vite', category: 'Build Tool', icon: SiVite },
-  { name: 'Material UI', category: 'UI Framework', icon: SiMui },
-
-  // 🔥 Backend actualizado
-  { name: 'Python', category: 'Backend', icon: SiPython },
-  { name: 'Django', category: 'Backend', icon: SiDjango },
-  { name: 'FastAPI', category: 'API', icon: SiFastapi }, // opcional, puedo quitarlo
-
-  // 🔥 Infra & Deploy
-  { name: 'AWS', category: 'Cloud', icon: FaAws },
-  { name: 'Vercel', category: 'Deploy', icon: SiVercel },
-  { name: 'Netlify', category: 'Deploy', icon: SiNetlify },
-
-  // 🔥 Bases de datos
-  { name: 'PostgreSQL', category: 'Database', icon: SiPostgresql },
-  { name: 'MongoDB', category: 'Database', icon: SiMongodb },
-
-  // 🔥 Pagos
-  { name: 'Shopify', category: 'Payment', icon: SiShopify },
+  { name: 'React', icon: SiReact, color: '#61DAFB' },
+  { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+  { name: 'Python', icon: SiPython, color: '#3776AB' },
+  { name: 'AWS', icon: FaAws, color: '#FF9900' },
+  { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+  { name: 'Terraform', icon: SiTerraform, color: '#7B42BC' },
+  { name: 'Redis', icon: SiRedis, color: '#DC382D' },
+  { name: 'Git', icon: SiGit, color: '#F05032' },
 ];
 
 const containerVariants = {
@@ -51,11 +32,12 @@ const containerVariants = {
   },
 };
 
-const chipVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
   show: {
     opacity: 1,
     scale: 1,
+    y: 0,
     transition: { duration: 0.5, ease: 'easeOut' },
   },
 };
@@ -64,9 +46,8 @@ const TechStack = () => {
   const { t } = useTranslation('common');
 
   return (
-    <Box id="stack" sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
+    <Box id="stack" sx={{ py: { xs: 8, md: 12 }, background: (theme) => theme.palette.background.paper }}>
       <Container>
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +64,6 @@ const TechStack = () => {
           </Stack>
         </motion.div>
 
-        {/* Chips con iconos */}
         <Box
           component={motion.div}
           variants={containerVariants}
@@ -91,75 +71,64 @@ const TechStack = () => {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
           sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 2,
-            justifyContent: 'center',
-            maxWidth: 900,
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: 'repeat(2, 1fr)',
+              sm: 'repeat(4, 1fr)',
+            },
+            gap: 3,
+            maxWidth: 800,
             mx: 'auto',
           }}
         >
-          {technologies.map((tech, index) => {
+          {technologies.map((tech) => {
             const Icon = tech.icon;
             return (
-              <Chip
+              <Paper
                 component={motion.div}
-                variants={chipVariants}
-                key={index}
-                label={
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Icon size={16} />
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      {tech.name}
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary">
-                      {t(`techStack.categories.${tech.category}`)}
-                    </Typography>
-                  </Stack>
-                }
+                variants={itemVariants}
+                whileHover={{
+                  y: -8,
+                  boxShadow: `0 12px 32px ${tech.color}30`,
+                  borderColor: tech.color,
+                }}
+                key={tech.name}
+                elevation={0}
                 sx={{
-                  py: 2.5,
-                  px: 2,
-                  background: (theme) => theme.custom.cardGradient,
-                  border: '1px solid',
-                  borderColor: 'divider',
+                  p: 3,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  background: 'rgba(8, 10, 24, 0.5)',
+                  backdropFilter: 'blur(10px)',
+                  WebkitBackdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                   borderRadius: 3,
                   transition: 'all 0.3s ease',
-                  '&:hover': {
-                    borderColor: 'primary.main',
-                    background:
-                      'linear-gradient(135deg, rgba(125,63,185,0.15) 0%, rgba(93,95,233,0.1) 100%)',
-                    transform: 'translateY(-2px)',
-                  },
+                  cursor: 'default',
                 }}
-              />
+              >
+                <Box
+                  sx={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 2,
+                    background: `${tech.color}15`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <Icon size={28} color={tech.color} />
+                </Box>
+                <Typography variant="body2" sx={{ fontWeight: 700, textAlign: 'center' }}>
+                  {tech.name}
+                </Typography>
+              </Paper>
             );
           })}
-        </Box>
-
-        {/* Extra info */}
-        <Box
-          component={motion.div}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          sx={{
-            mt: 8,
-            p: 4,
-            background: (theme) => theme.custom.cardGradient,
-            border: '1px solid',
-            borderColor: 'divider',
-            borderRadius: 3,
-            textAlign: 'center',
-          }}
-        >
-          <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
-            {t('techStack.otherTechTitle')}
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 500, mx: 'auto' }}>
-            {t('techStack.otherTechDescription')}
-          </Typography>
         </Box>
       </Container>
     </Box>

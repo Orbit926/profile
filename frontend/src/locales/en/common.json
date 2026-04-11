@@ -2,345 +2,148 @@
   "header": {
     "nav": {
       "home": "Home",
-      "about": "About Us",
+      "about": "About",
       "projects": "Projects",
-      "services": "Services"
+      "experience": "Experience",
+      "contact": "Contact"
     },
-    "cta": "Schedule a Call",
+    "cta": "Contact Me",
     "menuAriaLabel": "Open navigation menu"
   },
   "hero": {
-    "subtitle": "Orbit Web Studio",
-    "titleLine1": "We launch your brand",
-    "titleLine2": "into orbit",
-    "bullets": {
-      "frontend": "React + MUI frontend development",
-      "backend": "Integrations and small backends",
-      "deploy": "Professional deploy and performance"
-    },
-    "ctaPrimary": "View Services",
-    "ctaSecondary": "Projects"
+    "greeting": "Hi, I'm Gabriel Garcia Cortes",
+    "headline": "Building scalable cloud-powered applications",
+    "subheadline": "Cloud Fullstack Developer specialized in React, AWS and modern architectures",
+    "supporting": "I design and develop end-to-end solutions combining frontend, backend and cloud infrastructure to build real-world scalable products.",
+    "ctaProjects": "View Projects",
+    "ctaCV": "Download CV",
+    "ctaContact": "Contact Me"
   },
   "about": {
-    "title": "About Us",
-    "subtitle": "We are a studio specialized in creating web solutions that drive businesses and transform ideas into digital reality.",
-    "mission": {
-      "title": "Our Mission",
-      "description": "Help companies and entrepreneurs establish a solid digital presence through high-quality web development, focused on performance, scalability, and exceptional user experience."
-    },
-    "vision": {
-      "title": "Our Vision",
-      "description": "To be the reference studio for those seeking professional, modern, and scalable web solutions. We want every project from Orbit to become a digital asset that generates real value."
-    },
-    "strengthsTitle": "Our Strengths",
-    "strengthsSubtitle": "What sets us apart in every project we develop",
-    "strengths": {
-      "modern": {
-        "title": "Modern Technology",
-        "description": "We work with React, Material UI, Django and the most current tools in the web ecosystem."
+    "title": "About Me",
+    "description": "Gabriel Garcia Cortes is a Cloud Fullstack Developer focused on building scalable and user-centered web applications. Currently working as an IT Intern at Chivas, while developing freelance projects using React, Python and cloud technologies.",
+    "highlights": {
+      "frontend": {
+        "title": "Frontend",
+        "description": "React, JavaScript, Material UI, responsive design and modern UI/UX patterns."
       },
-      "performance": {
-        "title": "High Performance",
-        "description": "We optimize every line of code to ensure speed, SEO and smooth experience on all devices."
+      "backend": {
+        "title": "Backend",
+        "description": "Python, REST APIs, server-side logic and database management."
       },
-      "deploy": {
-        "title": "Professional Deploy",
-        "description": "Solid experience in AWS, CI/CD and scalable and secure cloud architectures."
-      },
-      "design": {
-        "title": "Thoughtful Design",
-        "description": "Every interface is designed to combine modern aesthetics with usability and conversion."
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "AWS services, Docker, Terraform, CI/CD pipelines and infrastructure as code."
       }
-    },
-    "valuesTitle": "Our Values",
-    "valuesSubtitle": "The principles that guide our work every day",
-    "values": {
-      "quality": "Quality over quantity",
-      "communication": "Transparent communication",
-      "results": "Results-oriented"
-    }
-  },
-  "projects": {
-    "title": "Projects",
-    "subtitle": "Some of our recent work",
-    "devaltra": {
-      "name": "Devaltra Logistics",
-      "type": "Landing Page",
-      "description": "Modern platform for international logistics company with real-time quotation system."
-    },
-    "wedding": {
-      "name": "Wedding Invitation",
-      "type": "Digital Invitation",
-      "description": "Personalized digital wedding invitation with elegant design, smooth animations and fully responsive experience developed for my aunt's wedding."
-    },
-    "greenpaw": {
-      "name": "Greenpaw",
-      "type": "E-commerce",
-      "description": "Online pet products store with shopping cart, payment gateway and admin panel."
-    },
-    "openProject": "Open project"
-  },
-  "services": {
-    "title": "Services",
-    "subtitle": "Complete web solutions from design to deploy",
-    "landing": {
-      "title": "High-impact landing pages",
-      "description": "Modern designs optimized for conversion, with fluid animations and exceptional user experience."
-    },
-    "webapp": {
-      "title": "Custom web apps",
-      "description": "Personalized web applications with React, API integration and scalable architecture."
-    },
-    "ecommerce": {
-      "title": "Compact e-commerce",
-      "description": "Complete online stores with payment gateways, inventory management and admin panel."
-    },
-    "deploy": {
-      "title": "Deploy & performance",
-      "description": "Professional deployment on AWS, Vercel or Netlify with performance optimization and monitoring."
-    }
-  },
-  "process": {
-    "title": "Process",
-    "subtitle": "A transparent workflow from start to finish",
-    "discovery": {
-      "title": "Discovery",
-      "description": "We understand your vision, goals and technical requirements of the project."
-    },
-    "design": {
-      "title": "Wireframe & design",
-      "description": "We create prototypes and designs that combine aesthetics with functionality."
-    },
-    "development": {
-      "title": "Development",
-      "description": "We implement with clean code, best practices and scalable architecture."
-    },
-    "deploy": {
-      "title": "Deploy & handoff",
-      "description": "We deploy to production and deliver access and complete documentation."
     }
   },
   "techStack": {
     "title": "Tech Stack",
-    "subtitle": "Modern and reliable technologies to build scalable solutions",
-    "categories": {
-      "Frontend": "Frontend",
-      "Build Tool": "Build Tool",
-      "UI Framework": "UI Framework",
-      "Backend": "Backend",
-      "API": "API",
-      "Cloud": "Cloud",
-      "Deploy": "Deploy",
-      "Database": "Database",
-      "Payment": "Payment"
-    },
-    "otherTechTitle": "Need another technology?",
-    "otherTechDescription": "We can integrate any tool your project requires or adapt your current stack."
+    "subtitle": "Technologies I use to build scalable and modern solutions"
   },
-  "pricing": {
-    "title": "Plans & Services",
-    "subtitle": "Choose the type of project that best fits what you want to build.",
-    "basic": {
-      "name": "Basic Landing",
-      "description": "Perfect for presenting your business or project in a professional way.",
-      "price": "From $449 USD",
-      "features": {
-        "responsive": "Modern responsive design",
-        "seo": "Basic SEO setup",
-        "analytics": "Google Analytics integration",
-        "contact": "Contact form",
-        "performance": "Light performance optimization",
-        "revisions": "1 revision included",
-        "support": "30-day support"
-      },
-      "cta": "Get Started"
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Real-world applications I've designed, built and deployed",
+    "greenpaw": {
+      "name": "Greenpaw",
+      "type": "E-commerce",
+      "description": "E-commerce platform using React + Shopify headless, focused on UX and scalability.",
+      "impact": "Fully functional online store with integrated payment processing"
     },
-    "professional": {
-      "name": "Professional Website",
-      "description": "Ideal for businesses looking for a complete and polished online presence.",
-      "price": "From $1,079 USD",
-      "features": {
-        "allBasic": "Everything in Basic Landing",
-        "multipage": "Multiple pages and custom sections",
-        "animations": "Advanced animations with Framer Motion",
-        "extraForms": "Additional forms",
-        "revisions": "2 revisions included",
-        "support": "30-day support"
-      },
-      "cta": "Most Popular",
-      "badge": "Most Popular"
+    "flixy": {
+      "name": "Flixy",
+      "type": "Streaming Platform",
+      "description": "Streaming platform UI project focused on frontend architecture and user experience.",
+      "impact": "Complex UI with dynamic content loading and responsive design"
     },
-    "custom": {
-      "name": "Custom Web App / E-commerce",
-      "description": "Complete solution for web applications with advanced functionality and backend.",
-      "price": "From $2,479 USD",
-      "features": {
-        "allProfessional": "Everything in Professional Website",
-        "database": "Database",
-        "auth": "User authentication",
-        "admin": "Admin dashboard",
-        "integrations": "Custom integrations",
-        "revisions": "Up to 5 revisions",
-        "support": "30-day support"
-      },
-      "cta": "Book a Call"
+    "orbit": {
+      "name": "Orbit",
+      "type": "Web Platform",
+      "description": "Modern web platform built with React + MUI, focusing on scalable UI components and design systems.",
+      "impact": "Production-ready platform serving real clients"
     },
-    "disclaimer": "Prices are starting prices and may vary depending on the project scope. Book a call to get a personalized quote."
+    "viewDemo": "Live Demo",
+    "viewCode": "GitHub",
+    "openProject": "Open project"
   },
-  "testimonials": {
-    "title": "What our clients say",
-    "subtitle": "Real experiences from people who trusted Orbit to take their digital presence to the next level.",
-    "luisSergio": {
-      "name": "Luis Sergio",
-      "role": "Director of Devaltra Logistics",
-      "quote": "The Orbit team created a professional and optimized landing page that completely elevated our company's image. Now our clients better understand our services and quote faster."
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Professional journey and hands-on work",
+    "chivas": {
+      "role": "IT Intern",
+      "company": "Chivas",
+      "period": "Feb 2026 – Present",
+      "tasks": [
+        "IT operations and internal tools",
+        "Process optimization and technical support"
+      ]
     },
-    "mariaJose": {
-      "name": "Maria Jose",
-      "role": "Founder of Greenpaw",
-      "quote": "The online store turned out amazing. Everything looks modern, fast and very clear for our customers. Thanks to Orbit we were able to launch our product professionally from day one."
-    },
-    "sara": {
-      "name": "Sara",
-      "role": "Bride – Wedding",
-      "quote": "The digital invitation exceeded all our expectations. The design, animations and mobile experience were perfect. All our guests congratulated us on how beautiful and functional it was."
+    "freelance": {
+      "role": "Freelance Developer",
+      "company": "Self-employed",
+      "period": "1+ year",
+      "tasks": [
+        "Web development projects for real clients",
+        "Fullstack implementations with React & Python",
+        "Cloud deployments on AWS infrastructure"
+      ]
     }
   },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "We answer the most common questions about our services and development process.",
-    "questions": {
-      "whatIncludes": {
-        "question": "What’s included in the development of a website?",
-        "answer": "It includes custom design, responsive development, performance optimization, essential SEO, API integrations, and deployment on AWS or Vercel."
+  "education": {
+    "title": "Education",
+    "degree": "Software Engineering",
+    "status": "Currently studying",
+    "graduation": "Expected graduation: 2027"
+  },
+  "whyHireMe": {
+    "title": "Why Hire Me",
+    "subtitle": "What I bring to any team",
+    "reasons": {
+      "learner": {
+        "title": "Fast Learner",
+        "description": "I pick up new technologies and frameworks quickly, adapting to any tech stack or workflow."
       },
-      "timeline": {
-        "question": "How long does a project take?",
-        "answer": "A landing page typically takes 1–2 weeks, and a more complete project takes 4–8 weeks. We always provide a clear timeline at the start."
+      "experience": {
+        "title": "Real Project Experience",
+        "description": "Not just academic work — I've built and deployed production applications for real clients."
       },
-      "technologies": {
-        "question": "Do you use modern technologies?",
-        "answer": "Yes. We work with React, Vite, Material UI, Django, AWS, and modern best practices for performance and security."
+      "stack": {
+        "title": "Full Stack + Cloud",
+        "description": "Strong frontend skills with React, growing backend with Python, and hands-on cloud experience with AWS."
+      }
+    }
+  },
+  "impact": {
+    "title": "Impact & Results",
+    "subtitle": "Tangible outcomes from my work",
+    "items": {
+      "deployed": {
+        "title": "Real Deployed Applications",
+        "description": "Multiple production apps built from scratch and serving users today."
       },
-      "support": {
-        "question": "Do you offer support after delivery?",
-        "answer": "All projects include 30 days of support. We also offer optional monthly maintenance for updates and improvements."
+      "cloud": {
+        "title": "Cloud Deployment Experience",
+        "description": "Hands-on with AWS, Docker and Terraform for scalable infrastructure."
       },
-      "payments": {
-        "question": "How do payments work?",
-        "answer": "For small websites, payments are split 50% upfront and 50% upon completion. For custom projects, payments are divided into milestones according to each development phase."
+      "scalable": {
+        "title": "Scalable Architecture Focus",
+        "description": "Every project is built with clean code, modular design and growth in mind."
       }
     }
   },
   "contact": {
-    "title": "Ready to launch your next project?",
-    "subtitle": "Tell us about your idea and we'll help you make it a reality",
-    "schedule": {
-      "title": "Schedule a call",
-      "description": "Let's talk about your project in a 30-minute video call",
-      "cta": "Schedule"
-    },
-    "email": {
-      "title": "Write to us",
-      "description": "Send us an email and we'll respond in less than 24 hours",
-      "cta": "Send email"
-    },
-    "form": {
-      "title": "Leave us a message",
-      "name": "Name",
-      "email": "Email",
-      "phone": "Phone number",
-      "phonePlaceholder": "E.g: +52 33 1234 5678",
-      "projectType": "Project type",
-      "message": "Message",
-      "messagePlaceholder": "Tell us about your project...",
-      "recaptchaNotice": "This site is protected by reCAPTCHA and the Google",
-      "privacyPolicy": "Privacy Policy",
-      "and": "and",
-      "termsOfService": "Terms of Service",
-      "ofGoogle": "apply.",
-      "submit": "Send message",
-      "submitting": "Sending...",
-      "projectTypes": {
-        "landing": "Landing Page",
-        "webapp": "Web App",
-        "ecommerce": "E-commerce",
-        "other": "Other"
-      },
-      "validation": {
-        "nameRequired": "Name is required",
-        "emailInvalid": "Enter a valid email",
-        "phoneInvalid": "Enter a valid phone number",
-        "projectTypeRequired": "Select a project type",
-        "messageRequired": "Tell us a bit more about your project"
-      },
-      "success": "Thank you for your message! I'll contact you soon.",
-      "error": "Error sending form. Please try again later.",
-      "errorUnexpected": "An unexpected error occurred. Please try again later.",
-      "privacyNotice": "By submitting this form you accept our",
-      "privacyLink": "Privacy Policy"
-    }
+    "title": "Let's Work Together",
+    "subtitle": "I'm open to new opportunities. Feel free to reach out!",
+    "email": "Send Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "downloadCV": "Download CV",
+    "or": "or connect with me on"
   },
   "footer": {
-    "description": "Web development focused on performance, design and cloud deployment.",
+    "description": "Cloud Fullstack Developer building scalable web applications.",
     "navigation": "Navigation",
-    "contactTitle": "Contact",
-    "contactDescription": "Have a project in mind? Write us and let's talk about it.",
-    "sendEmail": "Send email",
-    "followUs": "Follow us",
-    "copyright": "Orbit. All rights reserved.",
-    "madeWith": "Made with React, MUI and lots of coffee ☕",
-    "privacyPolicy": "Privacy Policy"
-  },
-  "floatingWhatsApp": {
-    "tooltip": "Contact",
-    "defaultMessage": "Hello, I would like to schedule a call"
-  },
-  "privacy": {
-    "title": "Privacy Policy",
-    "lastUpdated": "Last updated",
-    "intro": "At Orbit, we respect your privacy and are committed to protecting your personal data. This policy describes how we collect, use, and protect your information when you use our services or communicate with us.",
-    "dataCollected": {
-      "title": "1. Data We Collect",
-      "description": "We may collect the following types of personal information when you interact with our website or services:",
-      "items": [
-        "Full name",
-        "Email address",
-        "Phone number",
-        "Project information (project type, budget, description)",
-        "Technical data (IP address, browser type, pages visited)"
-      ]
-    },
-    "purpose": {
-      "title": "2. Purpose of Data Processing",
-      "description": "We use your personal data for the following purposes:",
-      "items": [
-        "Respond to your inquiries and information requests",
-        "Provide project quotes and proposals",
-        "Improve our services and user experience",
-        "Send communications related to your project",
-        "Comply with legal and tax obligations"
-      ]
-    },
-    "retention": {
-      "title": "3. Data Retention",
-      "description": "We will retain your personal data only for as long as necessary to fulfill the purposes described or as required by law. Once the purpose is fulfilled, we will proceed with the secure deletion of your information."
-    },
-    "rights": {
-      "title": "4. Your Rights",
-      "description": "As a data subject, you have the right to:",
-      "items": [
-        "Access your personal data that we have on record",
-        "Rectify inaccurate or incomplete data",
-        "Delete your data from our records",
-        "Object to the processing of your data for specific purposes",
-        "Revoke your consent at any time"
-      ]
-    },
-    "contact": {
-      "title": "5. Contact",
-      "description": "If you have questions about this privacy policy or wish to exercise your rights, you can contact us through the contact form on our website or by sending an email to the address indicated on the contact page."
-    },
-    "backToHome": "Back to home"
+    "copyright": "Gabriel Garcia Cortes. All rights reserved.",
+    "madeWith": "Built with React, MUI & deployed on AWS"
   }
 }

@@ -1,15 +1,14 @@
 // Hero.jsx
 import { Typography, Button, Box, Stack, Grid } from '@mui/material';
-import { Code, RocketLaunch, Speed } from '@mui/icons-material';
+import { Download, Visibility } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { personalConfig } from '../../config/data';
 import Orb from '../Orb/Orb';
 
-// Delay base para el contenido después del orb
-const containerDelay = 1.0;   // cámbialo a lo que quieras
+const containerDelay = 1.0;
 
-// Variantes para el contenido (texto, bullets, botones)
 const contentVariants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -19,7 +18,7 @@ const contentVariants = {
       delay: containerDelay,
       duration: 0.8,
       ease: 'easeOut',
-      staggerChildren: 0.12,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -29,34 +28,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const bulletsVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const buttonsVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.6, ease: 'easeOut' },
   },
 };
 
@@ -66,9 +38,7 @@ const Hero = () => {
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -98,17 +68,14 @@ const Hero = () => {
         }}
       />
 
-      {/* Orb como fondo centrado */}
+      {/* Orb background */}
       <Box
         component={motion.div}
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{
           opacity: 0.85,
           scale: 1,
-          transition: {
-            duration: 1.2,
-            ease: 'easeOut',
-          },
+          transition: { duration: 1.2, ease: 'easeOut' },
         }}
         sx={{
           position: 'absolute',
@@ -136,13 +103,12 @@ const Hero = () => {
         </Box>
       </Box>
 
-      {/* CONTENIDO CENTRADO */}
+      {/* Content */}
       <Box
         component={motion.div}
         variants={contentVariants}
         initial="hidden"
         animate="visible"
-        // 👇 este delay hace que el contenido espere a que salga el orb
         sx={{
           paddingTop: { xs: 6, sm: 0 },
           position: 'relative',
@@ -155,143 +121,131 @@ const Hero = () => {
       >
         <Grid container justifyContent="center">
           <Grid size={{ xs: 12, md: 10, lg: 8 }}>
-            <Stack spacing={1.5} alignItems="center">
-              {/* Subtítulo */}
-              <Typography
-                component={motion.h3}
+            <Stack spacing={2} alignItems="center">
+              {/* Greeting chip */}
+              <Box
+                component={motion.div}
                 variants={itemVariants}
-                variant="h3"
                 sx={{
-                  fontSize: { xs: '1.8rem', md: '2.2rem', lg: '2.4rem' },
-                  fontWeight: 200,
-                  letterSpacing: '-0.03em',
-                  maxWidth: 900,
+                  px: 3,
+                  py: 0.8,
+                  borderRadius: 999,
+                  background: 'rgba(125, 63, 185, 0.15)',
+                  border: '1px solid rgba(125, 63, 185, 0.3)',
+                  backdropFilter: 'blur(10px)',
                 }}
               >
-                {t('hero.subtitle')}
-              </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ fontWeight: 600, color: 'primary.light', letterSpacing: '0.02em' }}
+                >
+                  {t('hero.greeting')}
+                </Typography>
+              </Box>
 
-              {/* Título principal */}
+              {/* Headline */}
               <Typography
                 component={motion.h1}
                 variants={itemVariants}
                 variant="h1"
                 sx={{
-                  fontSize: { xs: '2.0rem', md: '2.8rem', lg: '3.2rem' },
+                  fontSize: { xs: '2.2rem', md: '3rem', lg: '3.6rem' },
                   fontWeight: 800,
                   letterSpacing: '-0.03em',
-                  textAlign: 'center',
+                  lineHeight: 1.1,
+                  background: 'linear-gradient(135deg, #e6e8ee 0%, #a46be3 50%, #5d5fe9 100%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                 }}
               >
-                <Box
-                  component="span"
-                  sx={{
-                    display: 'block',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {t('hero.titleLine1')}
-                </Box>
-                <Box
-                  component="span"
-                  sx={{
-                    display: 'block',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {t('hero.titleLine2')}
-                </Box>
+                {t('hero.headline')}
               </Typography>
 
-              {/* Bullets */}
-              <Stack
-                component={motion.div}
-                variants={bulletsVariants}
-                spacing={2}
-                sx={{ pt: 2, display: { xs: 'none', sm: 'flex' } }}
-                alignItems="center"
-              >
-                <Stack direction="row" spacing={1.5} alignItems="center">
-                  <Code color="primary" />
-                  <Box
-                    component="span"
-                    sx={{
-                      display: 'block',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {t('hero.bullets.frontend')}
-                  </Box>
-                </Stack>
-                <Stack direction="row" spacing={1.5} alignItems="center">
-                  <RocketLaunch color="secondary" />
-                  <Box
-                    component="span"
-                    sx={{
-                      display: 'block',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {t('hero.bullets.backend')}
-                  </Box>
-                </Stack>
-                <Stack direction="row" spacing={1.5} alignItems="center">
-                  <Speed sx={{ color: '#a46be3' }} />
-                  <Box
-                    component="span"
-                    sx={{
-                      display: 'block',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {t('hero.bullets.deploy')}
-                  </Box>
-                </Stack>
-              </Stack>
-
-              {/* Botones centrados */}
-              <Stack
-                component={motion.div}
-                variants={buttonsVariants}
-                direction="row"
-                spacing={2}
+              {/* Subheadline */}
+              <Typography
+                component={motion.p}
+                variants={itemVariants}
+                variant="h5"
                 sx={{
-                  pt: 4,
-                  flexWrap: 'wrap',
-                  //display: { xs: 'none', sm: 'flex' },
+                  fontSize: { xs: '1.1rem', md: '1.35rem' },
+                  fontWeight: 500,
+                  color: 'primary.light',
+                  maxWidth: 700,
                 }}
-                justifyContent="center"
+              >
+                {t('hero.subheadline')}
+              </Typography>
+
+              {/* Supporting text */}
+              <Typography
+                component={motion.p}
+                variants={itemVariants}
+                variant="body1"
+                color="text.secondary"
+                sx={{
+                  maxWidth: 620,
+                  lineHeight: 1.7,
+                  fontSize: { xs: '0.95rem', md: '1.05rem' },
+                }}
+              >
+                {t('hero.supporting')}
+              </Typography>
+
+              {/* CTA Buttons */}
+              <Stack
+                component={motion.div}
+                variants={itemVariants}
+                direction={{ xs: 'column', sm: 'row' }}
+                spacing={2}
+                sx={{ pt: 2 }}
               >
                 <Button
                   component={motion.button}
-                  onClick={() => scrollToSection('services')}
-                  variant="outlined"
-                  whileHover="hover"
-                  initial="rest"
-                  animate="rest"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => scrollToSection('projects')}
+                  variant="contained"
+                  color="primary"
+                  startIcon={<Visibility />}
                   sx={{
                     pointerEvents: 'auto',
-                    borderColor: 'primary.main',
-                    color: 'primary.main',
-                    transition: 'all 0.25s ease-in-out', // transición suave
-
-                    '&:hover': {
-                      backgroundColor: 'primary.main',
-                      borderColor: 'primary.main',
-                      color: '#fff',
-                    },
+                    px: 4,
+                    py: 1.3,
+                    borderRadius: 999,
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    boxShadow: '0 8px 32px rgba(125,63,185,0.4)',
                   }}
-                  variants={{
-                    rest: {
-                      scale: 1,
-                    },
-                    hover: {
-                      scale: 1.06,         // pequeño zoom al hover
-                      transition: { duration: 0.25, ease: 'easeOut' },
+                >
+                  {t('hero.ctaProjects')}
+                </Button>
+
+                <Button
+                  component={motion.a}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  href={personalConfig.cv}
+                  download
+                  variant="outlined"
+                  startIcon={<Download />}
+                  sx={{
+                    pointerEvents: 'auto',
+                    px: 4,
+                    py: 1.3,
+                    borderRadius: 999,
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    borderColor: 'rgba(255,255,255,0.2)',
+                    color: 'text.primary',
+                    backdropFilter: 'blur(10px)',
+                    '&:hover': {
+                      borderColor: 'primary.main',
+                      background: 'rgba(125,63,185,0.1)',
                     },
                   }}
                 >
-                  {t('hero.ctaPrimary')}
+                  {t('hero.ctaCV')}
                 </Button>
               </Stack>
             </Stack>

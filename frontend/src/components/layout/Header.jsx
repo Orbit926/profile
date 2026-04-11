@@ -5,6 +5,7 @@ import {
   Toolbar,
   Button,
   Box,
+  Typography,
   Paper,
   IconButton,
   Divider,
@@ -15,7 +16,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const sectionsIds = ['hero', 'about', 'projects', 'services'];
+const sectionsIds = ['hero', 'about', 'projects', 'experience', 'contact'];
 
 const headerDelay = 1.5;
 
@@ -40,7 +41,8 @@ const Header = () => {
   const sections = [
     { id: 'hero', label: t('header.nav.home') },
     { id: 'about', label: t('header.nav.about') },
-    { id: 'services', label: t('header.nav.services') },
+    { id: 'projects', label: t('header.nav.projects') },
+    { id: 'experience', label: t('header.nav.experience') },
   ];
 
   const [activeSection, setActiveSection] = useState('');
@@ -147,21 +149,24 @@ const Header = () => {
             }}
           >
             {/* Logo (izquierda) */}
-            <Box
+            <Typography
               onClick={() => scrollTo('hero')}
-              component="img"
-              src="/img/logos/orbit-color.png"
-              alt="Orbit"
+              variant="h6"
               sx={{
-                width: 80,
-                height: 'auto',
                 cursor: 'pointer',
-                transition: 'opacity 0.25s ease',
-                '&:hover': {
-                  opacity: 0.8,
-                },
+                fontWeight: 800,
+                fontSize: { xs: '1rem', sm: '1.15rem' },
+                background: 'linear-gradient(135deg, #e6e8ee 0%, #a46be3 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                flexShrink: 0,
+                letterSpacing: '-0.02em',
+                userSelect: 'none',
               }}
-            />
+            >
+              Gabriel GC
+            </Typography>
 
             {/* Navegación desktop/tablet (centro) */}
             <Box
@@ -305,16 +310,20 @@ const Header = () => {
               justifyContent: 'center',
             }}
           >
-            <Box
-              component="img"
-              src="/img/logos/orbit-color.png"
-              alt="Orbit"
+            <Typography
+              variant="h6"
               sx={{
-                width: 90,
-                height: 'auto',
+                fontWeight: 800,
+                fontSize: '1.1rem',
+                background: 'linear-gradient(135deg, #e6e8ee 0%, #a46be3 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
                 cursor: 'pointer',
               }}
-            />
+            >
+              Gabriel GC
+            </Typography>
           </Box>
 
           {sections.map((sec) => {

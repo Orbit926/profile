@@ -1,26 +1,28 @@
-export const contactConfig = {
-    whatsapp: {
-        number: '5213339541634',
-        defaultMessage: {
-            es: 'Hola, ¿en qué puedo ayudarte?',
-            en: 'Hello, how can I help you?',
+export const personalConfig = {
+    name: 'Gabriel Garcia Cortes',
+    role: 'Cloud Fullstack Developer',
+    email: 'gabriel@example.com',
+    linkedin: {
+        url: 'https://www.linkedin.com/in/gabriel-garcia-cortes',
+        label: 'LinkedIn',
+    },
+    github: {
+        url: 'https://github.com/gabrielgarciacortes',
+        label: 'GitHub',
+    },
+    cv: '/cv/Gabriel_Garcia_CV.pdf',
+    projects: {
+        greenpaw: {
+            demo: 'https://www.greenpaw.mx',
+            github: 'https://github.com/gabrielgarciacortes/greenpaw',
         },
-    },
-    email: {
-        address: 'contacto@orbit.com.mx',
-        subject: {
-            es: 'Consulta de Orbit Web Studio',
-            en: 'Query from Orbit Web Studio',
+        flixy: {
+            demo: 'http://flixy.ddns.net',
+            github: 'https://github.com/gabrielgarciacortes/flixy',
         },
-    },
-    recaptcha: {
-        siteKey: "6LdmpQ4sAAAAAGfHGArqFG09GNNQgteyWLuI8QT-"
-    },
-    API_URL: "https://5ee40mx0l5.execute-api.us-east-1.amazonaws.com/prod",
-    gitHub: {
-        url: "https://github.com/Orbit926",
-    },
-    instagram: {
-        url: "https://www.instagram.com/orbitstud.io?igsh=MndjenRwaTB0MW1m",
+        orbit: {
+            demo: 'https://orbit.com.mx',
+            github: 'https://github.com/gabrielgarciacortes/orbit',
+        },
     },
 };
