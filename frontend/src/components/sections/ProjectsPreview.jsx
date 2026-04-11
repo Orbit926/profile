@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { Container, Typography, Card, CardContent, Box, Stack, Chip, Grid, Button } from '@mui/material';
-import { OpenInNew, GitHub } from '@mui/icons-material';
+import { OpenInNew, GitHub, ReadMore } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { personalConfig } from '../../config/data';
+import { projectsDetailData } from '../../config/projectsData';
+import ProjectModal from '../ProjectModal';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,6 +27,10 @@ const itemVariants = {
 
 const ProjectsPreview = () => {
   const { t } = useTranslation('common');
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const openModal = (project) => setSelectedProject(project);
+  const closeModal = () => setSelectedProject(null);
 
   const projects = [
     {
@@ -160,7 +167,30 @@ const ProjectsPreview = () => {
                     </Stack>
                   </Stack>
 
-                  <Stack direction="row" spacing={1.5} sx={{ mt: 3 }}>
+                  <Stack direction="row" spacing={1.5} sx={{ mt: 2 }}>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      startIcon={<ReadMore sx={{ fontSize: 16 }} />}
+                      onClick={() => openModal(project)}
+                      sx={{
+                        flex: 1,
+                        borderRadius: 2,
+                        fontWeight: 600,
+                        fontSize: '0.8rem',
+                        textTransform: 'none',
+                        borderColor: `${project.accentColor}50`,
+                        color: project.accentColor,
+                        '&:hover': {
+                          borderColor: project.accentColor,
+                          background: `${project.accentColor}10`,
+                        },
+                      }}
+                    >
+                      {t('projects.viewDetails')}
+                    </Button>
+                  </Stack>
+                  <Stack direction="row" spacing={1.5} sx={{ mt: 1.5 }}>
                     {personalConfig.projects[project.key]?.demo && (
                       <Button
                         component="a"
@@ -213,6 +243,14 @@ const ProjectsPreview = () => {
           ))}
         </Grid>
       </Container>
+
+      <ProjectModal
+        open={!!selectedProject}
+        onClose={closeModal}
+        project={selectedProject}
+        projectData={selectedProject ? projectsDetailData[selectedProject.key] : null}
+        accentColor={selectedProject?.accentColor ?? '#a46be3'}
+      />
     </Box>
   );
 };

@@ -1,8 +1,8 @@
 {
   "header": {
     "nav": {
-      "home": "Inicio",
       "about": "Sobre mi",
+      "techstack": "Tecnologías",
       "projects": "Proyectos",
       "experience": "Experiencia",
       "contact": "Contacto"
@@ -66,8 +66,9 @@
       "description": "Plataforma web moderna construida con React + MUI, enfocada en componentes UI escalables y sistemas de diseño.",
       "impact": "Plataforma en produccion sirviendo clientes reales"
     },
-    "viewDemo": "Demo en Vivo",
-    "viewCode": "GitHub",
+    "viewDemo": "Ver Demo",
+    "viewCode": "Ver Código",
+    "viewDetails": "Estudio de Caso",
     "openProject": "Abrir proyecto"
   },
   "experience": {

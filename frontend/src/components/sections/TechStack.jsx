@@ -68,7 +68,7 @@ const TechStack = () => {
   const { t } = useTranslation('common');
 
   return (
-    <Box id="stack" sx={{ py: { xs: 8, md: 12 }, background: (theme) => theme.palette.background.paper }}>
+    <Box id="techstack" sx={{ py: { xs: 8, md: 12 }, background: (theme) => theme.palette.background.paper }}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

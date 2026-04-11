@@ -1,8 +1,8 @@
 {
   "header": {
     "nav": {
-      "home": "Home",
       "about": "About",
+      "techstack": "Tech Stack",
       "projects": "Projects",
       "experience": "Experience",
       "contact": "Contact"
@@ -68,6 +68,7 @@
     },
     "viewDemo": "Live Demo",
     "viewCode": "GitHub",
+    "viewDetails": "Case Study",
     "openProject": "Open project"
   },
   "experience": {

@@ -16,7 +16,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const sectionsIds = ['hero', 'about', 'projects', 'experience', 'contact'];
+const sectionsIds = ['about', 'techstack', 'projects', 'experience', 'contact'];
 
 const headerDelay = 1.5;
 
@@ -39,8 +39,8 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const sections = [
-    { id: 'hero', label: t('header.nav.home') },
     { id: 'about', label: t('header.nav.about') },
+    { id: 'techstack', label: t('header.nav.techstack') },
     { id: 'projects', label: t('header.nav.projects') },
     { id: 'experience', label: t('header.nav.experience') },
   ];
@@ -155,7 +155,7 @@ const Header = () => {
               sx={{
                 cursor: 'pointer',
                 fontWeight: 800,
-                fontSize: { xs: '1rem', sm: '1.15rem' },
+                fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
                 background: 'linear-gradient(135deg, #e6e8ee 0%, #a46be3 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
@@ -214,34 +214,34 @@ const Header = () => {
               })}
             </Box>
 
-            {/* CTA desktop/tablet (antes del grupo derecho) */}
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => scrollTo('contact')}
-              sx={{
-                position: 'relative',
-                zIndex: 1,
-                display: { xs: 'none', md: 'inline-flex' },
-                fontSize: '0.9rem',
-                textTransform: 'none',
-                ml: { sm: 1 },
-                borderRadius: 999,
-                fontWeight: activeSection === 'contact' ? 700 : 500,
-              }}
-            >
-              {t('header.cta')}
-            </Button>
-
-            {/* 🔹 Grupo derecho: idioma + menú (menu solo en mobile) */}
+            {/* 🔹 Grupo derecho: CTA + idioma + menú */}
             <Box
               sx={{
                 ml: 'auto',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 1,
+                gap: 1.5,
+                flexShrink: 0,
               }}
             >
+              {/* CTA desktop/tablet */}
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => scrollTo('contact')}
+                sx={{
+                  position: 'relative',
+                  zIndex: 1,
+                  display: { xs: 'none', md: 'inline-flex' },
+                  fontSize: '0.9rem',
+                  textTransform: 'none',
+                  borderRadius: 999,
+                  fontWeight: activeSection === 'contact' ? 700 : 500,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {t('header.cta')}
+              </Button>
               {/* Language Switcher: visible en todos los tamaños */}
               <Box
                 sx={{
@@ -314,7 +314,7 @@ const Header = () => {
               variant="h6"
               sx={{
                 fontWeight: 800,
-                fontSize: '1.1rem',
+                fontSize: '1.3rem',
                 background: 'linear-gradient(135deg, #e6e8ee 0%, #a46be3 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
