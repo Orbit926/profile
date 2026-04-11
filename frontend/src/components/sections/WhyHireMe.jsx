@@ -1,5 +1,5 @@
 import { Container, Typography, Box, Stack, Paper, Grid } from '@mui/material';
-import { Bolt, WorkHistory, Layers } from '@mui/icons-material';
+import { Bolt, WorkHistory, Layers, Code } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -19,6 +19,7 @@ const WhyHireMe = () => {
     { key: 'learner', icon: Bolt, color: '#FF9900' },
     { key: 'experience', icon: WorkHistory, color: '#7d3fb9' },
     { key: 'stack', icon: Layers, color: '#5d5fe9' },
+    { key: 'algorithms', icon: Code, color: '#4caf50' },
   ];
 
   return (
@@ -62,7 +63,7 @@ const WhyHireMe = () => {
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
-              <Grid key={reason.key} size={{ xs: 12, md: 4 }} sx={{ display: 'flex' }}>
+              <Grid key={reason.key} size={{ xs: 12, sm: 6 }} sx={{ display: 'flex' }}>
                 <motion.div
                   variants={cardVariants}
                   initial="hidden"

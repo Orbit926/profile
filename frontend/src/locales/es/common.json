@@ -25,19 +25,19 @@
   },
   "about": {
     "title": "Sobre Mi",
-    "description": "Soy un Cloud Fullstack Developer enfocado en construir aplicaciones web escalables y centradas en el usuario. Actualmente trabajo como IT Intern en Chivas, mientras desarrollo proyectos freelance usando React, Python y tecnologias cloud.",
+    "description": "Soy un Cloud Fullstack Developer enfocado en construir aplicaciones web escalables y centradas en el usuario. Actualmente trabajo como IT Intern en Chivas, mientras desarrollo proyectos freelance usando React, Python y tecnologias cloud. Escribo código pensando en cómo se comporta en producción — no solo en local.",
     "highlights": {
       "frontend": {
         "title": "Frontend",
-        "description": "React, JavaScript, Material UI, diseño responsive y patrones modernos de UI/UX."
+        "description": "React, JavaScript y Material UI con enfoque en composición de componentes, custom hooks y patrones de UI/UX. Diseño responsive y arquitecturas de estado escalables."
       },
       "backend": {
         "title": "Backend",
-        "description": "Python, REST APIs, logica del servidor y gestion de bases de datos."
+        "description": "Python, REST APIs y lógica de servidor aplicando patrones como Repository y Service Layer. Gestión de bases de datos relacionales y diseño limpio de APIs."
       },
       "cloud": {
         "title": "Cloud & DevOps",
-        "description": "Servicios AWS, Docker, Terraform, pipelines CI/CD e infraestructura como codigo."
+        "description": "AWS (S3, CloudFront, Lambda, API Gateway), Terraform para infraestructura como código, y comprensión real de cómo el código se comporta en producción."
       }
     }
   },
@@ -147,8 +147,9 @@
       "company": "Chivas",
       "period": "Feb 2026 – Presente",
       "tasks": [
-        "Operaciones IT y herramientas internas",
-        "Optimizacion de procesos y soporte tecnico"
+        "Gestión y mantenimiento de operaciones IT para el Estadio Akron y sus instalaciones, asegurando disponibilidad continua de sistemas críticos",
+        "Identificación y resolución de incidencias técnicas en entornos de alta presión, optimizando tiempos de respuesta y continuidad operativa",
+        "Exposición a infraestructura bajo carga real — el Estadio Akron recibe hasta 45,000 personas por evento, lo que me enseñó a priorizar disponibilidad y rendimiento desde el diseño"
       ]
     },
     "freelance": {
@@ -156,9 +157,9 @@
       "company": "Independiente",
       "period": "1+ año",
       "tasks": [
-        "Proyectos de desarrollo web para clientes reales",
-        "Implementaciones fullstack con React y Python",
-        "Despliegues cloud en infraestructura AWS"
+        "Diseño y desarrollo de aplicaciones web completas para clientes reales, desde la arquitectura hasta el despliegue en producción",
+        "Implementaciones fullstack con React en frontend y Python en backend, integrando APIs REST y bases de datos relacionales",
+        "Despliegues cloud en AWS usando S3, CloudFront, Lambda y API Gateway, con infraestructura gestionada mediante Terraform"
       ]
     }
   },
@@ -183,6 +184,10 @@
       "stack": {
         "title": "Full Stack + Cloud",
         "description": "Fuertes habilidades frontend con React, backend creciente con Python y experiencia practica en cloud con AWS."
+      },
+      "algorithms": {
+        "title": "Algoritmos y Estructuras de Datos",
+        "description": "82+ problemas resueltos en LeetCode. No para memorizar soluciones, sino para pensar con claridad en eficiencia y tomar mejores decisiones de diseño en código real."
       }
     }
   },
