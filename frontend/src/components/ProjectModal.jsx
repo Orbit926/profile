@@ -85,6 +85,7 @@ const BulletList = ({ items, accentColor }) => (
 
 const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
   const [imgErrors, setImgErrors] = useState({});
+  const [selectedImage, setSelectedImage] = useState(null);
   const { t } = useTranslation('common');
 
   if (!project || !projectData) return null;
@@ -321,13 +322,18 @@ const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
                             component="img"
                             src={src}
                             alt={`Screenshot ${i + 1}`}
+                            onClick={() => setSelectedImage(src)}
                             onError={() => setImgErrors((prev) => ({ ...prev, [i]: true }))}
                             sx={{
                               width: '100%',
                               borderRadius: 2,
                               border: `1px solid ${accentColor}25`,
-                              transition: 'transform 0.3s ease',
-                              '&:hover': { transform: 'scale(1.02)' },
+                              cursor: 'pointer',
+                              transition: 'all 0.3s ease',
+                              '&:hover': { 
+                                transform: 'scale(1.02)',
+                                boxShadow: `0 8px 24px ${accentColor}30`,
+                              },
                             }}
                           />
                         </Grid>
@@ -386,6 +392,57 @@ const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
 
             </Stack>
           </DialogContent>
+        </Dialog>
+      )}
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <Dialog
+          open={!!selectedImage}
+          onClose={() => setSelectedImage(null)}
+          maxWidth="lg"
+          fullWidth
+          PaperProps={{
+            sx: {
+              background: 'rgba(0, 0, 0, 0.95)',
+              backdropFilter: 'blur(20px)',
+              boxShadow: '0 24px 80px rgba(0,0,0,0.8)',
+            },
+          }}
+          slotProps={{
+            backdrop: {
+              sx: { backdropFilter: 'blur(8px)', background: 'rgba(0,0,0,0.9)' },
+            },
+          }}
+        >
+          <Box sx={{ position: 'relative', p: 2 }}>
+            <IconButton
+              onClick={() => setSelectedImage(null)}
+              sx={{
+                position: 'absolute',
+                top: 16,
+                right: 16,
+                zIndex: 1,
+                background: 'rgba(0,0,0,0.6)',
+                color: 'white',
+                '&:hover': { background: 'rgba(0,0,0,0.8)' },
+              }}
+            >
+              <Close />
+            </IconButton>
+            <Box
+              component="img"
+              src={selectedImage}
+              alt="Screenshot preview"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '85vh',
+                objectFit: 'contain',
+                borderRadius: 2,
+              }}
+            />
+          </Box>
         </Dialog>
       )}
     </AnimatePresence>

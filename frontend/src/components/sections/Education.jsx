@@ -50,31 +50,70 @@ const Education = () => {
               },
             }}
           >
-            <Stack direction="row" spacing={3} alignItems="center">
-              <Box
-                sx={{
-                  width: 60,
-                  height: 60,
-                  minWidth: 60,
-                  borderRadius: 2,
-                  background: 'rgba(164,107,227,0.15)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <School sx={{ fontSize: 32, color: '#a46be3' }} />
-              </Box>
+            <Stack spacing={3}>
+              <Stack direction="row" spacing={3} alignItems="flex-start">
+                <Box
+                  sx={{
+                    width: 60,
+                    height: 60,
+                    minWidth: 60,
+                    borderRadius: 2,
+                    background: 'rgba(164,107,227,0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <School sx={{ fontSize: 32, color: '#a46be3' }} />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.15rem', mb: 0.5 }}>
+                    {t('education.degree')}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: '#a46be3', fontWeight: 600, mb: 0.5 }}>
+                    {t('education.university')}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'primary.light', fontWeight: 600, mb: 0.5 }}>
+                    {t('education.status')}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {t('education.graduation')}
+                  </Typography>
+                </Box>
+              </Stack>
+
+              {/* Relevant Coursework */}
               <Box>
-                <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.15rem' }}>
-                  {t('education.degree')}
+                <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1.5, color: 'text.primary' }}>
+                  Relevant Coursework
                 </Typography>
-                <Typography variant="body2" sx={{ color: 'primary.light', fontWeight: 600, mb: 0.5 }}>
-                  {t('education.status')}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {t('education.graduation')}
-                </Typography>
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+                    gap: 1,
+                  }}
+                >
+                  {t('education.relevantCourses', { returnObjects: true }).map((course, i) => (
+                    <Typography
+                      key={i}
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                        '&::before': {
+                          content: '"•"',
+                          color: '#a46be3',
+                          fontWeight: 'bold',
+                        },
+                      }}
+                    >
+                      {course}
+                    </Typography>
+                  ))}
+                </Box>
               </Box>
             </Stack>
           </Paper>

@@ -165,9 +165,18 @@
   },
   "education": {
     "title": "Educacion",
-    "degree": "Ingenieria de Software",
+    "degree": "Ingeniería de Software y Minería de Datos",
+    "university": "Universidad Autónoma de Guadalajara (UAG)",
     "status": "Actualmente estudiando",
-    "graduation": "Graduacion esperada: 2027"
+    "graduation": "Graduación: Junio 2027",
+    "relevantCourses": [
+      "Estructuras de Datos y Algoritmos",
+      "Desarrollo de Aplicaciones Web",
+      "Bases de Datos Relacionales",
+      "Arquitectura de Software",
+      "Minería de Datos y Machine Learning",
+      "Computación en la Nube"
+    ]
   },
   "whyHireMe": {
     "title": "¿Por Que Contratarme?",

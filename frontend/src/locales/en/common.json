@@ -165,9 +165,18 @@
   },
   "education": {
     "title": "Education",
-    "degree": "Software Engineering",
+    "degree": "Software Engineering & Data Mining",
+    "university": "Universidad Autónoma de Guadalajara (UAG)",
     "status": "Currently studying",
-    "graduation": "Expected graduation: 2027"
+    "graduation": "Graduation: June 2027",
+    "relevantCourses": [
+      "Data Structures & Algorithms",
+      "Web Application Development",
+      "Relational Databases",
+      "Software Architecture",
+      "Data Mining & Machine Learning",
+      "Cloud Computing"
+    ]
   },
   "whyHireMe": {
     "title": "Why Hire Me",
