@@ -25,25 +25,34 @@ import {
 import { FaAws } from 'react-icons/fa';
 
 const technologies = [
+  // Frontend
   { name: 'React', icon: SiReact, color: '#61DAFB' },
   { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+  { name: 'Material UI', icon: SiMui, color: '#007FFF' },
+  
+  // Backend
   { name: 'Python', icon: SiPython, color: '#3776AB' },
   { name: 'Django', icon: SiDjango, color: '#0C4B33' },
   { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
   { name: 'Flask', icon: SiFlask, color: '#FFFFFF' },
-  { name: 'Material UI', icon: SiMui, color: '#007FFF' },
+  
+  // Databases
   { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
   { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+  { name: 'Redis', icon: SiRedis, color: '#DC382D' },
+  
+  // Cloud & Infrastructure
   { name: 'AWS', icon: FaAws, color: '#FF9900' },
   { name: 'Docker', icon: SiDocker, color: '#2496ED' },
   { name: 'Terraform', icon: SiTerraform, color: '#7B42BC' },
-  { name: 'Redis', icon: SiRedis, color: '#DC382D' },
+  { name: 'Linux', icon: SiLinux, color: '#FCC624' },
+  
+  // Tools & Platforms
   { name: 'Git', icon: SiGit, color: '#F05032' },
   { name: 'GitHub', icon: SiGithub, color: '#E6E8EE' },
-  { name: 'Linux', icon: SiLinux, color: '#FCC624' },
-  { name: 'n8n', icon: SiN8N, color: '#EA4B71' },
-  { name: 'Shopify', icon: SiShopify, color: '#96BF48' },
   { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },
+  { name: 'Shopify', icon: SiShopify, color: '#96BF48' },
+  { name: 'n8n', icon: SiN8N, color: '#EA4B71' },
 ];
 
 const containerVariants = {
