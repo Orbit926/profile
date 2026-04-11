@@ -272,6 +272,10 @@
   .pc-avatar-content .avatar {
     filter: grayscale(100%) contrast(1.05) brightness(1.1);
   }
+  
+  .pc-mini-avatar img {
+    filter: grayscale(100%) contrast(1.05) brightness(1.1);
+  }
 }
 
 .pc-avatar-content::before {
@@ -345,12 +349,13 @@
 }
 
 .pc-contact-btn {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   padding: 12px 16px;
   font-size: 12px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
