@@ -268,6 +268,10 @@
   .pc-avatar-content {
     mix-blend-mode: normal;
   }
+  
+  .pc-avatar-content .avatar {
+    filter: grayscale(100%) contrast(1.05) brightness(1.1);
+  }
 }
 
 .pc-avatar-content::before {
