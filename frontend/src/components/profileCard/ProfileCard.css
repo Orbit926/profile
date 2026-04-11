@@ -265,14 +265,9 @@
 }
 
 @media (max-width: 768px) {
-  .pc-avatar-content {
-    mix-blend-mode: normal;
-  }
-  
   .pc-avatar-content .avatar {
-    position: relative;
-    bottom: 0;
-    transform: translateX(-50%) !important;
+    filter: grayscale(1) contrast(1.1);
+    mix-blend-mode: normal;
   }
 }
 
