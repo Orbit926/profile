@@ -90,7 +90,7 @@ const Hero = () => {
           speed={1}
           attenuation={10}
           lineThickness={2}
-          baseRadius={0.2}
+          baseRadius={0.3}
           radiusStep={0.1}
           scaleRate={0.1}
           opacity={1}
