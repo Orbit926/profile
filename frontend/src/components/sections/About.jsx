@@ -54,6 +54,7 @@ const About = () => {
                 lineHeight: 1.8,
                 maxWidth: 750,
                 mx: 'auto',
+                textAlign: 'justify',
               }}
             >
               {t('about.description')}

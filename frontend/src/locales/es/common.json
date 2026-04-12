@@ -1,70 +1,74 @@
 {
   "header": {
     "nav": {
-      "about": "Sobre mi",
+      "about": "Sobre mí",
       "techstack": "Tecnologías",
       "projects": "Proyectos",
       "experience": "Experiencia",
       "contact": "Contacto"
     },
     "cta": "Contactar",
-    "menuAriaLabel": "Abrir menu de navegacion"
+    "menuAriaLabel": "Abrir menú de navegación"
   },
   "hero": {
-    "greeting": "Hola, soy Gabriel Garcia Cortes",
+    "greeting": "Hola, soy Gabriel García Cortés",
     "headline1": "Construyendo aplicaciones",
     "headline2": "escalables en la nube",
     "subheadline1": "Cloud Fullstack Developer especializado",
     "subheadline2": "en React, AWS y arquitecturas modernas",
     "supporting1": "Diseño y desarrollo soluciones end-to-end",
     "supporting2": "combinando frontend, backend e infraestructura cloud",
-    "supporting3": "para construir productos escalables del mundo real.",
+    "supporting3": "para construir productos reales que llegan a producción.",
     "ctaProjects": "Ver Proyectos",
     "ctaCV": "Descargar CV",
     "ctaContact": "Contactar"
   },
   "about": {
-    "title": "Sobre Mi",
-    "description": "Soy un Cloud Fullstack Developer enfocado en construir aplicaciones web escalables y centradas en el usuario. Actualmente trabajo como IT Intern en Chivas, mientras desarrollo proyectos freelance usando React, Python y tecnologias cloud. Escribo código pensando en cómo se comporta en producción — no solo en local.",
+    "title": "Sobre mí",
+    "description": "Soy un Cloud Fullstack Developer enfocado en construir aplicaciones web que funcionan en producción — no solo en local. Trabajo como IT Intern en Chivas mientras desarrollo proyectos freelance con React, Python y AWS. Me interesa entender cómo el código se comporta bajo carga real, y eso se refleja en cada decisión que tomo al diseñar arquitecturas.",
     "highlights": {
       "frontend": {
         "title": "Frontend",
-        "description": "React, JavaScript y Material UI con enfoque en composición de componentes, custom hooks y patrones de UI/UX. Diseño responsive y arquitecturas de estado escalables."
+        "description": "Construyo interfaces pensando en el usuario final. Me enfoco en que los componentes sean reutilizables, el estado sea predecible y la experiencia sea fluida en cualquier dispositivo."
       },
       "backend": {
         "title": "Backend",
-        "description": "Python, REST APIs y lógica de servidor aplicando patrones como Repository y Service Layer. Gestión de bases de datos relacionales y diseño limpio de APIs."
+        "description": "Diseño APIs limpias y mantenibles aplicando patrones como Repository y Service Layer. Priorizo la separación de responsabilidades y el comportamiento correcto bajo carga."
       },
       "cloud": {
         "title": "Cloud & DevOps",
-        "description": "AWS (S3, CloudFront, Lambda, API Gateway), Terraform para infraestructura como código, y comprensión real de cómo el código se comporta en producción."
+        "description": "Provisiono infraestructura real en AWS con Terraform y la entiendo más allá de los íconos — sé qué servicio usar para cada problema, por qué, y cuánto cuesta no hacerlo bien."
       }
     }
   },
   "techStack": {
     "title": "Tech Stack",
-    "subtitle": "Tecnologias que uso para construir soluciones escalables y modernas"
+    "subtitle": "Tecnologías con las que construyo soluciones escalables y modernas"
+  },
+  "cloud": {
+    "title": "Cloud & Infraestructura",
+    "subtitle": "Servicios e infraestructura implementados en proyectos reales para clientes."
   },
   "projects": {
     "title": "Proyectos",
     "subtitle": "Aplicaciones reales que he diseñado, construido y desplegado",
     "greenpaw": {
       "name": "Greenpaw",
-      "type": "E-commerce",
-      "description": "Plataforma e-commerce usando React + Shopify headless, enfocada en UX y escalabilidad.",
-      "impact": "Tienda online funcional con procesamiento de pagos integrado"
+      "type": "E-commerce Headless",
+      "description": "Storefront headless sobre Shopify construido con React. El cliente mantiene el Shopify Admin mientras tiene una experiencia frontend completamente personalizada.",
+      "impact": "Tienda activa en producción con procesamiento de pagos y dominio propio en AWS"
     },
     "flixy": {
       "name": "Flixy",
       "type": "Plataforma de Streaming",
-      "description": "Proyecto UI de plataforma de streaming enfocado en arquitectura frontend y experiencia de usuario.",
-      "impact": "UI compleja con carga dinamica de contenido y diseño responsive"
+      "description": "Plataforma de video estilo YouTube con streaming HLS, colas de subida con Redis, almacenamiento en S3, panel de moderación en Django y analytics con Power BI.",
+      "impact": "Sistema completo con upload async, moderación de contenido y dashboard de analíticas"
     },
     "orbit": {
       "name": "Orbit",
       "type": "Plataforma Web",
-      "description": "Plataforma web moderna construida con React + MUI, enfocada en componentes UI escalables y sistemas de diseño.",
-      "impact": "Plataforma en produccion sirviendo clientes reales"
+      "description": "Landing page moderna con sistema de diseño propio en React + MUI y formulario de contacto serverless en AWS — sin backend dedicado.",
+      "impact": "En producción en orbit.com.mx con infraestructura 100% serverless en AWS"
     },
     "viewDemo": "Ver Demo",
     "viewCode": "Ver Código",
@@ -72,84 +76,84 @@
     "openProject": "Abrir proyecto",
     "modal": {
       "orbit": {
-        "problem": "Orbit necesitaba una landing page moderna que comunicara claramente su propuesta de valor y gestionara envíos del formulario de contacto sin depender de un servidor backend tradicional.",
-        "solution": "Se construyó una landing page con React, un sistema de diseño personalizado con Material UI y animaciones con Framer Motion, usando un formulario de contacto serverless en AWS con envío de emails automatizado mediante Zoho.",
+        "problem": "Orbit necesitaba una landing page moderna que comunicara su propuesta de valor con claridad y gestionara formularios de contacto sin depender de un servidor backend tradicional.",
+        "solution": "Se construyó una landing page con React, un sistema de diseño personalizado con Material UI y animaciones con Framer Motion. El formulario de contacto funciona sobre una arquitectura serverless en AWS con envío automático de emails via Zoho.",
         "decisions": [
-          "Se eligió una arquitectura serverless con AWS Lambda y API Gateway para el formulario de contacto, evitando mantener un servidor dedicado y reduciendo costos de infraestructura.",
-          "Se usó AWS S3 y CloudFront para el hosting, proporcionando distribución de contenido estático eficiente y escalable.",
-          "Se integró Zoho Mail para el envío automático de emails al no tener acceso a producción de AWS SES.",
-          "Se usó Terraform para provisionar y gestionar la infraestructura cloud de forma reproducible."
+          "Arquitectura serverless con AWS Lambda y API Gateway para el formulario de contacto — sin servidor dedicado, sin costo fijo de infraestructura.",
+          "Hosting en S3 + CloudFront para distribución de contenido estático con baja latencia global.",
+          "Integración con Zoho Mail para emails automáticos al no tener acceso a producción de AWS SES por restricciones de reputación de dominio.",
+          "Terraform para provisionar y versionar toda la infraestructura cloud de forma reproducible."
         ],
         "challenges": [
-          "Integrar Zoho Mail para emails automáticos al no obtener acceso a producción de AWS SES por restricciones de reputación del dominio.",
-          "Configurar API Gateway y Lambda para procesar y validar correctamente las solicitudes del formulario de contacto.",
-          "Asegurar la correcta configuración de CORS entre el frontend y API Gateway en producción."
+          "Integrar Zoho Mail como alternativa a AWS SES al no poder acceder a producción por restricciones de reputación del dominio.",
+          "Configurar API Gateway y Lambda para procesar y validar correctamente las solicitudes del formulario.",
+          "Resolver problemas de CORS entre el frontend y API Gateway en el entorno de producción."
         ],
         "results": [
           "Plataforma en producción en orbit.com.mx.",
-          "Backend serverless con mantenimiento mínimo de infraestructura.",
+          "Backend 100% serverless con mantenimiento mínimo de infraestructura.",
           "Formulario de contacto confiable con notificaciones automáticas por email.",
           "Experiencia bilingüe con soporte en inglés y español."
         ]
       },
       "greenpaw": {
-        "problem": "Greenpaw necesitaba una tienda online personalizada que reflejara su identidad de marca de forma más efectiva que un tema estándar de Shopify.",
-        "solution": "Se construyó un storefront headless de Shopify con React y Material UI, manteniendo Shopify como motor de comercio mientras se habilitaba una experiencia frontend completamente personalizada.",
+        "problem": "Greenpaw necesitaba una tienda online que reflejara su identidad de marca más allá de lo que permite un tema estándar de Shopify, sin abandonar el Shopify Admin que ya usaba el cliente.",
+        "solution": "Se construyó un storefront headless con React y Material UI conectado a la Shopify Storefront API via GraphQL. Shopify sigue siendo el motor de comercio; el frontend es completamente personalizado.",
         "decisions": [
-          "Se eligió Shopify headless en lugar de un tema estándar para conservar el Shopify Admin mientras se permite código frontend completamente personalizado.",
-          "Se usó GraphQL a través de la Shopify Storefront API para la obtención flexible de datos de productos, carrito y checkout.",
-          "Se alojó el storefront en AWS S3 y CloudFront para distribución estática escalable.",
-          "Se usó Terraform para provisionar y gestionar los recursos cloud de forma consistente."
+          "Shopify headless en lugar de un tema estándar para mantener el Admin del cliente con control total sobre el frontend.",
+          "GraphQL via Shopify Storefront API para obtener datos de productos, carrito y checkout de forma flexible.",
+          "Hosting en AWS S3 + CloudFront para distribución estática escalable.",
+          "Terraform para provisionar y gestionar los recursos cloud de forma consistente."
         ],
         "challenges": [
-          "Gestionar el estado del carrito en el storefront sin una sesión de backend tradicional.",
-          "Gestionar la redirección al checkout de Shopify preservando una experiencia de usuario consistente.",
-          "Transferir el dominio desde Shopify y configurarlo en AWS Route 53 con la configuración DNS correcta."
+          "Gestionar el estado del carrito en el storefront sin sesión de backend tradicional.",
+          "Manejar la redirección al checkout de Shopify preservando una experiencia de usuario fluida.",
+          "Transferir el dominio desde Shopify y configurarlo en AWS Route 53 con la resolución DNS correcta."
         ],
         "results": [
           "Tienda e-commerce activa en greenpaw.mx.",
-          "Experiencia de compra con marca propia, más allá de las limitaciones de un tema estándar de Shopify.",
-          "Gestión de comercio amigable para el cliente a través del Shopify Admin.",
-          "Hosting e infraestructura cloud gestionados en AWS."
+          "Experiencia de compra con marca propia, sin limitaciones de temas estándar.",
+          "Gestión de comercio 100% desde el Shopify Admin — sin fricción para el cliente.",
+          "Hosting e infraestructura cloud gestionados íntegramente en AWS."
         ]
       },
       "flixy": {
-        "problem": "Se necesitaba construir una plataforma de video completa capaz de gestionar subidas, streaming, moderación y analíticas, operando bajo restricciones de hardware limitado.",
-        "solution": "Se construyó una plataforma de video estilo YouTube con frontend en HTML, CSS y JavaScript puro, backend en Django, colas de subida con Redis, procesamiento de video HLS, almacenamiento y distribución en AWS, y herramientas administrativas para moderación y analíticas.",
+        "problem": "Se necesitaba construir una plataforma de video completa — con streaming, moderación y analíticas — capaz de operar sobre una Raspberry Pi con recursos de hardware limitados.",
+        "solution": "Plataforma estilo YouTube con frontend en HTML/CSS/JS puro, backend en Django, colas de subida con Redis, procesamiento a HLS, almacenamiento en S3, distribución por CloudFront y panel de analíticas en Power BI.",
         "decisions": [
-          "Se usó Django para soportar un backend más completo con autenticación, flujos de moderación y funcionalidades basadas en base de datos.",
-          "Se implementaron colas Redis para controlar la concurrencia de subidas y evitar sobrecargar la Raspberry Pi durante el procesamiento HLS.",
-          "Se limitó el backend a procesar solo dos subidas simultáneas para proteger la estabilidad del sistema bajo cargas de procesamiento pesadas.",
-          "Se devolvieron partes del video y URLs prefirmadas de S3 al frontend para que los clientes subieran directamente a S3, reduciendo la carga del backend.",
-          "Se usó CloudFront frente a S3 para mejorar el rendimiento de entrega de video y optimizar costos."
+          "Django para soportar autenticación, flujos de moderación y funcionalidades de base de datos con un framework maduro.",
+          "Colas Redis para controlar la concurrencia de subidas y evitar sobrecargar la Raspberry Pi durante el procesamiento HLS.",
+          "Límite de dos subidas simultáneas para proteger la estabilidad del sistema bajo cargas pesadas de procesamiento.",
+          "URLs prefirmadas de S3 para que los clientes suban directamente a S3, reduciendo la carga del backend.",
+          "CloudFront frente a S3 para mejorar el rendimiento de entrega de video y optimizar costos de transferencia."
         ],
         "challenges": [
-          "Procesar subidas de video HLS en hardware Raspberry Pi limitado sin que el sistema fallara.",
+          "Procesar video HLS en hardware Raspberry Pi limitado sin que el sistema fallara bajo carga.",
           "Diseñar un flujo de subida basado en colas con Redis para gestionar solicitudes concurrentes de forma segura.",
-          "Implementar subidas directas a S3 con URLs prefirmadas manteniendo una experiencia de cliente fluida.",
+          "Implementar subidas directas a S3 con URLs prefirmadas manteniendo una experiencia de usuario fluida.",
           "Configurar SSL con Certbot y exponer la plataforma de forma segura desde un entorno alojado en casa."
         ],
         "results": [
-          "Plataforma de video completa con capacidades de streaming, moderación y analíticas.",
-          "Panel de moderación donde los administradores pueden aprobar o rechazar videos, moderar comentarios y banear usuarios.",
-          "Funcionalidades para usuarios: suscripciones a canales, me gusta/no me gusta y foros de comentarios por video.",
-          "Dashboard de Power BI para visualizar estadísticas de la plataforma e insights de uso.",
-          "Reducción del estrés del backend mediante colas Redis y subidas directas de clientes a S3."
+          "Plataforma de video completa con streaming HLS, moderación y analíticas.",
+          "Panel de moderación para aprobar/rechazar videos, moderar comentarios y gestionar usuarios.",
+          "Funcionalidades sociales: suscripciones a canales, likes/dislikes y foros de comentarios por video.",
+          "Dashboard de Power BI para visualizar estadísticas de plataforma e insights de uso.",
+          "Backend protegido con colas Redis y subidas directas a S3 para minimizar carga del servidor."
         ]
       }
     }
   },
   "experience": {
     "title": "Experiencia",
-    "subtitle": "Trayectoria profesional y trabajo practico",
+    "subtitle": "Trayectoria profesional y trabajo práctico",
     "chivas": {
       "role": "IT Intern",
       "company": "Chivas",
       "period": "Feb 2026 – Presente",
       "tasks": [
         "Gestión y mantenimiento de operaciones IT para el Estadio Akron y sus instalaciones, asegurando disponibilidad continua de sistemas críticos",
-        "Identificación y resolución de incidencias técnicas en entornos de alta presión, optimizando tiempos de respuesta y continuidad operativa",
-        "Exposición a infraestructura bajo carga real — el Estadio Akron recibe hasta 45,000 personas por evento, lo que me enseñó a priorizar disponibilidad y rendimiento desde el diseño"
+        "Diagnóstico y resolución de incidencias técnicas en entornos de alta presión — el estadio recibe hasta 45,000 personas por evento, lo que exige disponibilidad y tiempo de respuesta real",
+        "Trabajo directo con infraestructura bajo carga real, reforzando mi enfoque de diseñar sistemas que funcionen cuando más importa"
       ]
     },
     "freelance": {
@@ -158,13 +162,13 @@
       "period": "1+ año",
       "tasks": [
         "Diseño y desarrollo de aplicaciones web completas para clientes reales, desde la arquitectura hasta el despliegue en producción",
-        "Implementaciones fullstack con React en frontend y Python en backend, integrando APIs REST y bases de datos relacionales",
-        "Despliegues cloud en AWS usando S3, CloudFront, Lambda y API Gateway, con infraestructura gestionada mediante Terraform"
+        "Implementaciones fullstack con React en frontend y Python/Django en backend, integrando APIs REST y bases de datos relacionales",
+        "Despliegues cloud en AWS con S3, CloudFront, Lambda y API Gateway, con infraestructura gestionada mediante Terraform"
       ]
     }
   },
   "education": {
-    "title": "Educacion",
+    "title": "Educación",
     "degree": "Ingeniería de Software y Minería de Datos",
     "university": "Universidad Autónoma de Guadalajara (UAG)",
     "status": "Actualmente estudiando",
@@ -179,52 +183,52 @@
     ]
   },
   "whyHireMe": {
-    "title": "¿Por Que Contratarme?",
-    "subtitle": "Lo que aporto a cualquier equipo",
+    "title": "Lo que traigo al equipo",
+    "subtitle": "Por qué tiene sentido trabajar juntos",
     "reasons": {
       "learner": {
-        "title": "Aprendizaje Rapido",
-        "description": "Aprendo nuevas tecnologias y frameworks rapidamente, adaptandome a cualquier stack o flujo de trabajo."
+        "title": "Aprendizaje rápido",
+        "description": "Me adapto rápido a nuevos stacks y flujos de trabajo. No necesito que todo esté documentado para empezar a aportar."
       },
       "experience": {
-        "title": "Experiencia Real",
-        "description": "No solo trabajo academico — he construido y desplegado aplicaciones en produccion para clientes reales."
+        "title": "Experiencia real en producción",
+        "description": "No solo trabajo académico — he diseñado, construido y desplegado aplicaciones que clientes reales usan hoy."
       },
       "stack": {
-        "title": "Full Stack + Cloud",
-        "description": "Fuertes habilidades frontend con React, backend creciente con Python y experiencia practica en cloud con AWS."
+        "title": "Fullstack + Cloud",
+        "description": "Puedo moverme entre frontend, backend e infraestructura cloud sin fricciones. Entiendo el sistema completo, no solo mi parte."
       },
       "algorithms": {
-        "title": "Algoritmos y Estructuras de Datos",
-        "description": "82+ problemas resueltos en LeetCode. No para memorizar soluciones, sino para pensar con claridad en eficiencia y tomar mejores decisiones de diseño en código real."
+        "title": "Pensamiento algorítmico",
+        "description": "82+ problemas resueltos en LeetCode — no para memorizar soluciones, sino para tomar mejores decisiones de diseño cuando el rendimiento importa."
       }
     }
   },
   "impact": {
     "title": "Impacto y Resultados",
-    "subtitle": "Metricas clave de mis proyectos",
+    "subtitle": "Números concretos de proyectos reales",
     "apps": {
       "value": "6+",
-      "label": "Aplicaciones Desplegadas"
+      "label": "Aplicaciones en producción"
     },
     "items": {
       "deployed": {
-        "title": "Aplicaciones Desplegadas",
-        "description": "Multiples apps en produccion construidas desde cero y sirviendo usuarios hoy."
+        "title": "Apps en producción",
+        "description": "Más de 6 aplicaciones construidas desde cero y sirviendo usuarios reales hoy — no demos, no prototipos."
       },
       "cloud": {
-        "title": "Experiencia en Cloud",
-        "description": "Experiencia practica con AWS, Docker y Terraform para infraestructura escalable."
+        "title": "Infraestructura real en AWS",
+        "description": "S3, CloudFront, Lambda, API Gateway y Route 53 usados en proyectos vendidos a clientes, con Terraform para gestionar todo el stack."
       },
       "scalable": {
-        "title": "Arquitectura Escalable",
-        "description": "Cada proyecto se construye con codigo limpio, diseño modular y pensando en el crecimiento."
+        "title": "Código que escala",
+        "description": "Cada proyecto se diseña con separación de responsabilidades, componentes reutilizables y arquitectura pensada para crecer."
       }
     }
   },
   "contact": {
-    "title": "Trabajemos Juntos",
-    "subtitle": "Estoy abierto a nuevas oportunidades. ¡No dudes en contactarme!",
+    "title": "Trabajemos juntos",
+    "subtitle": "Estoy abierto a nuevas oportunidades. No dudes en escribirme.",
     "email": "Enviar Email",
     "linkedin": "LinkedIn",
     "github": "GitHub",
@@ -233,8 +237,8 @@
   },
   "footer": {
     "description": "Cloud Fullstack Developer construyendo aplicaciones web escalables.",
-    "navigation": "Navegacion",
-    "copyright": "Gabriel Garcia Cortes. Todos los derechos reservados.",
+    "navigation": "Navegación",
+    "copyright": "Gabriel García Cortés. Todos los derechos reservados.",
     "madeWith": "Construido con React, MUI y desplegado en Vercel"
   }
 }

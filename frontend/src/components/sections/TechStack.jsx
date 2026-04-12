@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import {
   SiReact,
+  SiFastapi,
   SiJavascript,
   SiPython,
   SiDjango,
@@ -12,7 +13,6 @@ import {
   SiTerraform,
   SiRedis,
   SiGit,
-  SiShopify,
   SiLinux,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
@@ -25,6 +25,7 @@ const technologies = [
   // Backend
   { name: 'Python', icon: SiPython, color: '#3776AB' },
   { name: 'Django', icon: SiDjango, color: '#0C4B33' },
+  { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
   
   // Databases
   { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
@@ -38,7 +39,6 @@ const technologies = [
   
   // Tools & Platforms
   { name: 'Git', icon: SiGit, color: '#F05032' },
-  { name: 'Shopify', icon: SiShopify, color: '#96BF48' },
 ];
 
 const containerVariants = {
