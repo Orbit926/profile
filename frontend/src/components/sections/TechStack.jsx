@@ -5,23 +5,15 @@ import { useTranslation } from 'react-i18next';
 import {
   SiReact,
   SiJavascript,
-  SiRedux,
   SiPython,
   SiDjango,
-  SiFastapi,
-  SiFlask,
-  SiMui,
   SiPostgresql,
-  SiMysql,
   SiDocker,
   SiTerraform,
   SiRedis,
   SiGit,
   SiShopify,
-  SiGithub,
-  SiVercel,
   SiLinux,
-  SiN8N,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 
@@ -29,18 +21,13 @@ const technologies = [
   // Frontend
   { name: 'React', icon: SiReact, color: '#61DAFB' },
   { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-  { name: 'Redux', icon: SiRedux, color: '#764ABC' },
-  { name: 'Material UI', icon: SiMui, color: '#007FFF' },
   
   // Backend
   { name: 'Python', icon: SiPython, color: '#3776AB' },
   { name: 'Django', icon: SiDjango, color: '#0C4B33' },
-  { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
-  { name: 'Flask', icon: SiFlask, color: '#FFFFFF' },
   
   // Databases
   { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
-  { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
   { name: 'Redis', icon: SiRedis, color: '#DC382D' },
   
   // Cloud & Infrastructure
@@ -51,10 +38,7 @@ const technologies = [
   
   // Tools & Platforms
   { name: 'Git', icon: SiGit, color: '#F05032' },
-  { name: 'GitHub', icon: SiGithub, color: '#E6E8EE' },
-  { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },
   { name: 'Shopify', icon: SiShopify, color: '#96BF48' },
-  { name: 'n8n', icon: SiN8N, color: '#EA4B71' },
 ];
 
 const containerVariants = {
