@@ -106,7 +106,7 @@ const ProjectImpact = () => {
                     <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, fontSize: '1rem' }}>
                       {t(`impact.items.${item.key}.title`)}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, textAlign: 'justify' }}>
                       {t(`impact.items.${item.key}.description`)}
                     </Typography>
                   </Paper>

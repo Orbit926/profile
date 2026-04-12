@@ -125,7 +125,7 @@ const WhyHireMe = () => {
                     <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>
                       {t(`whyHireMe.reasons.${reason.key}.title`)}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, textAlign: 'justify' }}>
                       {t(`whyHireMe.reasons.${reason.key}.description`)}
                     </Typography>
                   </Paper>
