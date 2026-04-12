@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import {
   SiReact,
   SiJavascript,
+  SiRedux,
   SiPython,
   SiDjango,
   SiFastapi,
@@ -28,6 +29,7 @@ const technologies = [
   // Frontend
   { name: 'React', icon: SiReact, color: '#61DAFB' },
   { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+  { name: 'Redux', icon: SiRedux, color: '#764ABC' },
   { name: 'Material UI', icon: SiMui, color: '#007FFF' },
   
   // Backend

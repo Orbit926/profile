@@ -72,65 +72,40 @@ const Hero = () => {
 
       {/* Orb background */}
       <Box
+        component={motion.div}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.85, transition: { duration: 1.2, ease: 'easeOut' } }}
         sx={{
           position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          inset: 0,
           zIndex: 0,
           pointerEvents: 'none',
+          filter: 'drop-shadow(0 0 40px rgba(164,107,227,0.6))',
         }}
       >
-        <Box
-          component={motion.div}
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{
-            opacity: 0.85,
-            scale: 1,
-            transition: { duration: 1.2, ease: 'easeOut' },
-          }}
-          sx={{
-            width: { xs: '150vw', sm: '100vw' },
-            height: { xs: '150vw', sm: '100vw' },
-            maxWidth: '1600px',
-            maxHeight: '1600px',
-            filter: 'drop-shadow(0 0 40px rgba(164,107,227,0.6))',
-            '@keyframes float': {
-              '0%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-16px)' },
-              '100%': { transform: 'translateY(0px)' },
-            },
-            animation: 'float 18s ease-in-out infinite',
-          }}
-        >
-          <MagicRings
-            color="#9C42D6"
-            colorTwo="#4C61E9"
-            ringCount={6}
-            speed={1}
-            attenuation={10}
-            lineThickness={2}
-            baseRadius={0.2}
-            radiusStep={0.1}
-            scaleRate={0.1}
-            opacity={1}
-            blur={0}
-            noiseAmount={0.1}
-            rotation={0}
-            ringGap={1}
-            fadeIn={0.7}
-            fadeOut={0.5}
-            followMouse={false}
-            mouseInfluence={0.2}
-            hoverScale={1.2}
-            parallax={0.05}
-            clickBurst={false}
-          />
-        </Box>
+        <MagicRings
+          color="#9C42D6"
+          colorTwo="#4C61E9"
+          ringCount={6}
+          speed={1}
+          attenuation={10}
+          lineThickness={2}
+          baseRadius={0.2}
+          radiusStep={0.1}
+          scaleRate={0.1}
+          opacity={1}
+          blur={0}
+          noiseAmount={0.1}
+          rotation={0}
+          ringGap={1}
+          fadeIn={0.7}
+          fadeOut={0.5}
+          followMouse={false}
+          mouseInfluence={0.2}
+          hoverScale={1.2}
+          parallax={0.05}
+          clickBurst={false}
+        />
       </Box>
 
       {/* Content */}

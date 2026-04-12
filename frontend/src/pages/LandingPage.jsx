@@ -36,7 +36,9 @@ const LazySection = ({ children }) => (
 const LandingPage = () => (
   <>
     <Header />
-    <Hero />
+    <Box sx={{ overflow: 'hidden' }}>
+      <Hero />
+    </Box>
     <LazySection><About /></LazySection>
     <LazySection><TechStack /></LazySection>
     <LazySection><ProjectsPreview /></LazySection>
