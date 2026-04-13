@@ -42,10 +42,12 @@ const LandingPage = () => (
     <LazySection><About /></LazySection>
     <LazySection><TechStack /></LazySection>
     <LazySection><ProjectsPreview /></LazySection>
-    <LazySection><Experience /></LazySection>
-    <LazySection><Education /></LazySection>
-    <LazySection><WhyHireMe /></LazySection>
-    <LazySection><ProjectImpact /></LazySection>
+    <div id="experience">
+      <LazySection><Experience /></LazySection>
+      <LazySection><Education /></LazySection>
+      <LazySection><WhyHireMe /></LazySection>
+      <LazySection><ProjectImpact /></LazySection>
+    </div>
     <LazySection><ContactCTA /></LazySection>
     <LazySection><Footer /></LazySection>
     <WhatsAppButton />

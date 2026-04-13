@@ -30,7 +30,6 @@ const Experience = () => {
 
   return (
     <Box
-      id="experience"
       sx={{
         py: { xs: 8, md: 12 },
         background: (theme) => theme.palette.background.default,
