@@ -46,7 +46,7 @@ const Experience = () => {
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
               {t('experience.title')}
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 500, textAlign: 'center' }}>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 500, textAlign: 'justify' }}>
               {t('experience.subtitle')}
             </Typography>
           </Stack>
