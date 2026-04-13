@@ -3,7 +3,7 @@ export const personalConfig = {
     role: 'Cloud Fullstack Developer',
     email: 'gabrielgcortes@outlook.com',
     linkedin: {
-        url: 'https://www.linkedin.com/in/gabriel-garcía-cortés-160b23367/',
+        url: 'https://www.linkedin.com/in/gabriel-garcia-cortes',
         label: 'LinkedIn',
     },
     github: {
