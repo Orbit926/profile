@@ -33,7 +33,7 @@
       },
       "backend": {
         "title": "Backend",
-        "description": "Diseño APIs limpias y mantenibles aplicando patrones como Repository y Service Layer. Priorizo la separación de responsabilidades y el comportamiento correcto bajo carga."
+        "description": "Diseño APIs limpias y mantenibles aplicando patrones como Singleton, Observer y MVC. Priorizo la separación de responsabilidades y el comportamiento correcto bajo carga."
       },
       "cloud": {
         "title": "Cloud & DevOps",

@@ -33,7 +33,7 @@
       },
       "backend": {
         "title": "Backend",
-        "description": "I design clean, maintainable APIs applying patterns like Repository and Service Layer. I prioritize separation of concerns and correct behavior under load."
+        "description": "I design clean, maintainable APIs applying patterns like Singleton, Observer and MVC. I prioritize separation of concerns and correct behavior under load."
       },
       "cloud": {
         "title": "Cloud & DevOps",
