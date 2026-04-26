@@ -124,6 +124,10 @@ const TechStack = () => {
                   borderRadius: 3,
                   transition: 'all 0.3s ease',
                   cursor: 'default',
+                  '@media (hover: none)': {
+                    borderColor: tech.color,
+                    boxShadow: `0 8px 24px ${tech.color}25`,
+                  },
                 }}
               >
                 <Box
