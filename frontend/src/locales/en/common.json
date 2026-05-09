@@ -70,6 +70,13 @@
       "description": "Modern landing page with a custom design system in React + MUI and a serverless contact form on AWS — no dedicated backend.",
       "impact": "Live in production at orbit.com.mx with 100% serverless AWS infrastructure"
     },
+    "chivas": {
+      "name": "IT Maintenance System — Chivas",
+      "type": "Internal Full-Stack Platform",
+      "description": "Internal full-stack platform for Club Deportivo Guadalajara to manage IT asset maintenance — workflows, checklists, digital signatures, PDF reports, and KPI dashboards.",
+      "impact": "Technically ready for internal deployment; pending final technology approval"
+    },
+    "privateProject": "Internal project — demo on request",
     "viewDemo": "View Demo",
     "viewCode": "View Code",
     "viewDetails": "Case Study",
@@ -115,6 +122,32 @@
           "Branded shopping experience without the limitations of standard themes.",
           "Commerce managed 100% from the Shopify Admin — zero friction for the client.",
           "Hosting and cloud infrastructure managed entirely on AWS."
+        ]
+      },
+      "chivas": {
+        "problem": "Club Deportivo Guadalajara's IT department had no dedicated system to track equipment maintenance — asset status, maintenance history, technician assignments and report generation were all handled manually, making audits and oversight difficult.",
+        "solution": "Built a full-stack internal web platform covering the entire IT maintenance lifecycle: asset inventory, preventive and corrective maintenance records, photographic evidence, digital signatures, automatic PDF report generation, CSV import/export, KPI dashboards, analytics charts, and a local AI chatbot prototype connected to inventory and maintenance data.",
+        "decisions": [
+          "Django REST Framework for a structured, scalable API with role-based access control aligned to internal department hierarchy.",
+          "JWT authentication with access and refresh tokens to secure internal sessions without relying on external identity providers.",
+          "xhtml2pdf for server-side PDF report generation, keeping sensitive maintenance data off third-party cloud services.",
+          "Recharts for interactive KPI dashboards and analytics charts with date-range and category filters.",
+          "Docker Compose to containerize the full stack (React, Django, PostgreSQL, Nginx, Gunicorn), enabling consistent deployment across environments.",
+          "Ollama for a local LLM chatbot prototype that queries internal inventory and maintenance data without sending data to external APIs."
+        ],
+        "challenges": [
+          "Designing a maintenance workflow flexible enough to handle both preventive and corrective records with different checklists per equipment category.",
+          "Implementing digital signature capture that integrates cleanly into PDF report generation without external dependencies.",
+          "Coordinating multi-phase photographic evidence (before, during, after) within a single maintenance record while keeping the UX straightforward.",
+          "Configuring Nginx and Gunicorn inside Docker Compose to correctly serve the React build alongside the Django API in a single container stack."
+        ],
+        "results": [
+          "Complete IT maintenance lifecycle managed in a single internal platform.",
+          "Automatic PDF report generation with digital signatures, checklists, and photographic evidence.",
+          "Executive KPI dashboard with filters by date range, equipment category, and technician.",
+          "CSV import/export for bulk asset and maintenance data management.",
+          "Full Dockerized deployment stack ready for internal installation — pending final technology approval.",
+          "Local AI chatbot prototype querying live inventory and maintenance data without external API exposure."
         ]
       },
       "flixy": {

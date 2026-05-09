@@ -42,6 +42,32 @@ export const projectsDetailData = {
     ],
   },
 
+  chivas: {
+    i18nKey: 'projects.modal.chivas',
+    architecture: [
+      { layer: 'Frontend', detail: 'React + Vite + Material UI' },
+      { layer: 'Charts', detail: 'Recharts' },
+      { layer: 'Backend', detail: 'Django + Django REST Framework' },
+      { layer: 'Authentication', detail: 'JWT (access + refresh tokens)' },
+      { layer: 'Database', detail: 'PostgreSQL' },
+      { layer: 'PDF Generation', detail: 'xhtml2pdf' },
+      { layer: 'AI Chatbot', detail: 'Ollama (local LLM, prototype)' },
+      { layer: 'Application Server', detail: 'Gunicorn' },
+      { layer: 'Reverse Proxy', detail: 'Nginx' },
+      { layer: 'Containerization', detail: 'Docker + Docker Compose' },
+    ],
+    tech: ['React', 'Vite', 'Material UI', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'Docker', 'Nginx', 'Recharts', 'xhtml2pdf', 'Ollama'],
+    screenshots: [
+      '/screenshots/chivas/1.webp',
+      '/screenshots/chivas/2.webp',
+      '/screenshots/chivas/3.webp',
+      '/screenshots/chivas/4.webp',
+      '/screenshots/chivas/5.webp',
+      '/screenshots/chivas/6.webp',
+      '/screenshots/chivas/7.webp',
+    ],
+  },
+
   flixy: {
     i18nKey: 'projects.modal.flixy',
     architecture: [

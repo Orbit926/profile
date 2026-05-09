@@ -70,6 +70,13 @@
       "description": "Landing page moderna con sistema de diseño propio en React + MUI y formulario de contacto serverless en AWS — sin backend dedicado.",
       "impact": "En producción en orbit.com.mx con infraestructura 100% serverless en AWS"
     },
+    "chivas": {
+      "name": "IT Maintenance System — Chivas",
+      "type": "Plataforma Full-Stack Interna",
+      "description": "Plataforma full-stack interna para el Club Deportivo Guadalajara para gestionar mantenimiento de equipos de TI — flujos, checklists, firmas digitales, reportes PDF y dashboards de KPIs.",
+      "impact": "Técnicamente listo para instalación interna; pendiente de aprobación tecnológica final"
+    },
+    "privateProject": "Proyecto interno — demo on request",
     "viewDemo": "Ver Demo",
     "viewCode": "Ver Código",
     "viewDetails": "Estudio de Caso",
@@ -115,6 +122,32 @@
           "Experiencia de compra con marca propia, sin limitaciones de temas estándar.",
           "Gestión de comercio 100% desde el Shopify Admin — sin fricción para el cliente.",
           "Hosting e infraestructura cloud gestionados íntegramente en AWS."
+        ]
+      },
+      "chivas": {
+        "problem": "El área de TI del Club Deportivo Guadalajara no contaba con un sistema dedicado para dar seguimiento al mantenimiento de equipos — el estado de activos, el historial de mantenimientos, la asignación de técnicos y la generación de reportes se gestionaban de forma manual, dificultando las auditorías y el control operativo.",
+        "solution": "Se desarrolló una plataforma web full-stack interna que cubre el ciclo completo de mantenimiento de TI: inventario de activos, registros de mantenimiento preventivo y correctivo, evidencias fotográficas, firmas digitales, generación automática de reportes PDF, importación/exportación CSV, dashboards de KPIs, analíticas y un prototipo de chatbot local conectado a los datos de inventario y mantenimiento.",
+        "decisions": [
+          "Django REST Framework para una API estructurada y escalable con control de acceso por roles alineado a la jerarquía interna del departamento.",
+          "Autenticación JWT con tokens de acceso y refresco para asegurar las sesiones internas sin depender de proveedores de identidad externos.",
+          "xhtml2pdf para generación de reportes PDF en el servidor, manteniendo los datos sensibles de mantenimiento fuera de servicios cloud de terceros.",
+          "Recharts para dashboards interactivos de KPIs y gráficas analíticas con filtros por rango de fechas y categoría.",
+          "Docker Compose para contenerizar el stack completo (React, Django, PostgreSQL, Nginx, Gunicorn), garantizando despliegues consistentes entre entornos.",
+          "Ollama para un prototipo de chatbot con LLM local que consulta datos internos de inventario y mantenimiento sin exponer información a APIs externas."
+        ],
+        "challenges": [
+          "Diseñar un flujo de mantenimiento flexible para gestionar registros preventivos y correctivos con checklists distintos por categoría de equipo.",
+          "Implementar la captura de firma digital de forma que se integrara limpiamente en la generación de reportes PDF sin dependencias externas.",
+          "Coordinar evidencias fotográficas en múltiples fases (antes, durante, después) dentro de un mismo registro de mantenimiento sin comprometer la experiencia de usuario.",
+          "Configurar Nginx y Gunicorn dentro de Docker Compose para servir correctamente el build de React junto con la API de Django en un mismo stack de contenedores."
+        ],
+        "results": [
+          "Ciclo completo de mantenimiento de TI gestionado desde una sola plataforma interna.",
+          "Generación automática de reportes PDF con firmas digitales, checklists y evidencias fotográficas.",
+          "Dashboard ejecutivo de KPIs con filtros por rango de fechas, categoría de equipo y técnico.",
+          "Importación/exportación CSV para gestión masiva de activos y registros de mantenimiento.",
+          "Stack de despliegue Dockerizado listo para instalación interna — pendiente de aprobación tecnológica final.",
+          "Prototipo de chatbot IA local que consulta datos de inventario y mantenimiento en tiempo real sin exponer información al exterior."
         ]
       },
       "flixy": {

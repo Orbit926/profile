@@ -29,5 +29,8 @@ export const personalConfig = {
             demo: 'https://orbit.com.mx',
             github: 'https://github.com/Orbit926/Orbit-infra',
         },
+        chivas: {
+            github: 'https://github.com/gabrielgcortes/mantenimientos-chivas',
+        },
     },
 };

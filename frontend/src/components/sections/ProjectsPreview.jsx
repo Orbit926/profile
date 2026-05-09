@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Container, Typography, Card, CardContent, Box, Stack, Chip, Grid, Button } from '@mui/material';
-import { OpenInNew, GitHub, ReadMore } from '@mui/icons-material';
+import { OpenInNew, GitHub, ReadMore, Lock } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { personalConfig } from '../../config/data';
@@ -51,6 +51,13 @@ const ProjectsPreview = () => {
       gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
       accentColor: '#7d3fb9',
     },
+    {
+      key: 'chivas',
+      tech: ['React', 'Django', 'PostgreSQL', 'Docker', 'JWT'],
+      gradient: 'linear-gradient(135deg, rgba(230,81,0,0.2) 0%, rgba(255,167,38,0.1) 100%)',
+      accentColor: '#e65100',
+      privateProject: true,
+    },
   ];
 
   return (
@@ -84,7 +91,7 @@ const ProjectsPreview = () => {
           {projects.map((project) => (
             <Grid
               key={project.key}
-              size={{ xs: 12, md: 4 }}
+              size={{ xs: 12, md: 6 }}
               component={motion.div}
               variants={itemVariants}
             >
@@ -191,7 +198,26 @@ const ProjectsPreview = () => {
                     </Button>
                   </Stack>
                   <Stack direction="row" spacing={1.5} sx={{ mt: 1.5 }}>
-                    {personalConfig.projects[project.key]?.demo && (
+                    {project.privateProject ? (
+                      <Box
+                        sx={{
+                          flex: 1,
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 0.75,
+                          px: 1.5,
+                          py: 0.75,
+                          borderRadius: 2,
+                          border: `1px solid ${project.accentColor}30`,
+                          background: `${project.accentColor}08`,
+                        }}
+                      >
+                        <Lock sx={{ fontSize: 13, color: project.accentColor, opacity: 0.8 }} />
+                        <Typography variant="caption" sx={{ color: project.accentColor, fontWeight: 600, fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                          {t('projects.privateProject')}
+                        </Typography>
+                      </Box>
+                    ) : personalConfig.projects[project.key]?.demo && (
                       <Button
                         component="a"
                         href={personalConfig.projects[project.key].demo}
