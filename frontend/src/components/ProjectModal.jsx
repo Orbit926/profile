@@ -90,7 +90,7 @@ const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
 
   if (!project || !projectData) return null;
 
-  const { i18nKey, architecture, tech, screenshots } = projectData;
+  const { i18nKey, architecture, tech, screenshots, disclaimer } = projectData;
   const problem = t(`${i18nKey}.problem`);
   const solution = t(`${i18nKey}.solution`);
   const decisions = t(`${i18nKey}.decisions`, { returnObjects: true });
@@ -309,6 +309,27 @@ const ProjectModal = ({ open, onClose, project, projectData, accentColor }) => {
                   ))}
                 </Stack>
               </Box>
+
+              {/* Disclaimer */}
+              {disclaimer && (
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 1.5,
+                    p: 2,
+                    borderRadius: 2,
+                    background: 'rgba(255,167,38,0.06)',
+                    border: '1px solid rgba(255,167,38,0.25)',
+                    borderLeft: '3px solid #ffa726',
+                  }}
+                >
+                  <Warning sx={{ fontSize: 18, color: '#ffa726', mt: 0.2, flexShrink: 0 }} />
+                  <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.7 }}>
+                    {disclaimer}
+                  </Typography>
+                </Box>
+              )}
 
               {/* Screenshots */}
               {screenshots && screenshots.length > 0 && (

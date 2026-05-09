@@ -57,6 +57,7 @@ export const projectsDetailData = {
       { layer: 'Containerization', detail: 'Docker + Docker Compose' },
     ],
     tech: ['React', 'Vite', 'Material UI', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'Docker', 'Nginx', 'Recharts', 'xhtml2pdf', 'Ollama'],
+    disclaimer: 'All data shown in these screenshots is fictional and generated for demonstration purposes only. No real Chivas data, assets, or internal information has been exposed.',
     screenshots: [
       '/screenshots/chivas/1.webp',
       '/screenshots/chivas/2.webp',
