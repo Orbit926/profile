@@ -1,0 +1,98 @@
+@startuml Orbit C4 Component Diagram
+
+title C4 Component Diagram - Orbit Web Platform
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam linetype ortho
+
+' ==================== ACTORES ====================
+actor "Web User" as User
+actor "Email Client" as EmailClient
+
+' ==================== SERVICIOS EXTERNOS ====================
+rectangle "External Services" as Ext {
+  component "Google reCAPTCHA v3" as Recaptcha
+  component "Zoho Mail" as Zoho
+}
+
+' ==================== DNS & EDGE ====================
+rectangle "DNS & Edge Layer" as Edge {
+  component "Route 53" as Route53
+  component "ACM Certificate" as ACM
+  component "CloudFront CDN" as CloudFront
+}
+
+' ==================== FRONTEND ====================
+rectangle "Frontend Layer" as FE {
+  component "S3 Bucket\nStatic Website (React)" as S3Site
+}
+
+' ==================== BACKEND API ====================
+rectangle "Backend API Layer" as BE {
+  component "API Gateway\nHTTP API" as APIGW
+  component "Lambda\nContact Form" as LambdaContact
+  component "IAM Role\n(Contact)" as IAMContact
+}
+
+' ==================== EMAIL SERVICE ====================
+rectangle "Email Service Layer" as EmailSvc {
+  component "Lambda\nEmail Dispatcher" as LambdaEmail
+  component "Amazon SES" as SES
+  component "SNS Topics\n(bounces, complaints, deliveries)" as SNSTopics
+  component "IAM Role\n(Email)" as IAMEmail
+}
+
+' ==================== MONITOREO ====================
+rectangle "Monitoring Layer" as Mon {
+  component "CloudWatch Logs" as CWLogs
+}
+
+' ==================== RELACIONES ====================
+
+' Frontend
+User --> Route53 : DNS lookup\norbit.com.mx
+Route53 --> CloudFront : Route traffic
+CloudFront --> ACM : Uses TLS cert
+CloudFront --> S3Site : Fetch static files
+S3Site --> CloudFront : HTML, JS, CSS
+CloudFront --> User : HTTPS response
+
+' Contact form
+User --> APIGW : POST /contact
+APIGW --> LambdaContact : Invoke
+LambdaContact --> Recaptcha : Verify token
+Recaptcha --> LambdaContact : Validation result
+LambdaContact --> LambdaEmail : Invoke email dispatcher
+
+' Email flow
+LambdaEmail --> SES : Send templated emails
+SES --> EmailClient : Delivery of emails
+SES --> SNSTopics : Events (bounces, complaints, deliveries)
+
+' DNS for email
+Route53 --> Zoho : MX records for corporate email
+Route53 --> SES : Verification records (SPF, DKIM, etc.)
+
+' IAM & logs
+LambdaContact --> IAMContact : Uses role
+LambdaEmail --> IAMEmail : Uses role
+
+LambdaContact --> CWLogs : Write logs
+LambdaEmail --> CWLogs : Write logs
+
+' ==================== NOTAS ====================
+
+note right of BE
+  Backend is serverless:
+  - API Gateway HTTP API
+  - Lambda functions
+end note
+
+note right of EmailSvc
+  SES sends:
+  - Confirmation email to customer
+  - Notification email to vendor
+end note
+
+@enduml

@@ -1,0 +1,32 @@
+# robots.txt para Orbit
+# Generado para optimizar el crawling de buscadores
+
+# Permitir acceso a todos los bots principales
+User-agent: *
+Allow: /
+
+# Bloquear rutas de API (si existen)
+Disallow: /api/
+
+# Bloquear archivos temporales o de desarrollo
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Googlebot (Google Search)
+User-agent: Googlebot
+Allow: /
+
+# Googlebot-Image (Google Images)
+User-agent: Googlebot-Image
+Allow: /
+
+# Bingbot (Microsoft Bing)
+User-agent: Bingbot
+Allow: /
+
+# AhrefsBot (Ahrefs SEO crawler)
+User-agent: AhrefsBot
+Allow: /
+
+# Sitemap
+Sitemap: https://www.orbit.com.mx/sitemap.xml
