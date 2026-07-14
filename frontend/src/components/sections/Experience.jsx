@@ -1,5 +1,5 @@
 import { Container, Typography, Box, Stack, Paper } from '@mui/material';
-import { Work, Code } from '@mui/icons-material';
+import { Work, Code, Security, EmojiEvents } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -13,13 +13,24 @@ const itemVariants = {
 };
 
 const Experience = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const lang = i18n.language;
 
   const experiences = [
     {
       key: 'chivas',
       icon: Work,
       color: '#7d3fb9',
+    },
+    {
+      key: 'fifa',
+      icon: EmojiEvents,
+      color: '#e8a020',
+    },
+    {
+      key: 'intel',
+      icon: Security,
+      color: '#00c7fd',
     },
     {
       key: 'freelance',
@@ -58,7 +69,7 @@ const Experience = () => {
             const tasks = t(`experience.${exp.key}.tasks`, { returnObjects: true });
             return (
               <motion.div
-                key={exp.key}
+                key={`${exp.key}-${lang}`}
                 variants={itemVariants}
                 initial="hidden"
                 whileInView="show"
@@ -143,8 +154,8 @@ const Experience = () => {
                       </Stack>
 
                       <Stack spacing={0.8}>
-                        {Array.isArray(tasks) && tasks.map((task, taskIndex) => (
-                          <Stack key={taskIndex} direction="row" spacing={1} alignItems="center">
+                        {Array.isArray(tasks) && tasks.map((task) => (
+                          <Stack key={task} direction="row" spacing={1} alignItems="center">
                             <Box
                               sx={{
                                 width: 6,

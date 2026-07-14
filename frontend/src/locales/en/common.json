@@ -25,7 +25,7 @@
   },
   "about": {
     "title": "About Me",
-    "description": "I'm a Cloud Fullstack Developer focused on building web applications that work in production — not just locally. I work as an IT Intern at Chivas while developing freelance projects with React, Python and AWS. I care about understanding how code behaves under real load, and that shows in every architecture decision I make.",
+    "description": "I'm a developer focused on building web applications that work in production — not just locally. I currently work as a Security Research Intern at Intel, developing Python automations to validate hardware security features. I have Cloud Fullstack experience with React, Python, and AWS, and I care about understanding how systems behave under real load and under attack.",
     "highlights": {
       "frontend": {
         "title": "Frontend",
@@ -181,12 +181,35 @@
     "subtitle": "Professional background and hands-on work",
     "chivas": {
       "role": "IT Intern",
-      "company": "Chivas",
-      "period": "Feb 2026 – Present",
+      "company": "Chivas / Estadio Akron",
+      "period": "Feb 2026 – Jun 2026",
       "tasks": [
         "Management and maintenance of IT operations for Estadio Akron and its facilities, ensuring continuous availability of critical systems",
         "Diagnosis and resolution of technical incidents in high-pressure environments — the stadium hosts up to 45,000 people per event, demanding real availability and response time",
         "Direct work with infrastructure under real load, reinforcing my approach of designing systems that hold up when it matters most"
+      ]
+    },
+    "fifa": {
+      "role": "IT Support – Full-time Event Support",
+      "company": "Estadio Akron – FIFA World Cup 2026",
+      "period": "Jun 2026",
+      "tasks": [
+        "Provided on-site technical support during FIFA World Cup 2026 matches at Estadio Akron, resolving critical incidents in real time to ensure operational continuity",
+        "Supported international media organizations to ensure the reliability of their technology infrastructure throughout the event",
+        "Resolved issues related to POS systems, network connectivity, and hardware under high-demand, zero-tolerance-for-failure conditions",
+        "Collaborated with the IT team to maintain availability of all technology services during tournament matches"
+      ]
+    },
+    "intel": {
+      "role": "Security Research Intern",
+      "company": "Intel",
+      "period": "Jul 2026 – Present",
+      "tasks": [
+        "Developing Python automations to validate security features in Intel chips, reducing manual validation time and increasing test coverage",
+        "Designing tooling to run automated tests against hardware platforms and SoCs across different load and configuration scenarios",
+        "Researching potential hardware-level security vulnerabilities, with focus on Hardware Security and Side-Channel Attack vectors",
+        "Analyzing test results to identify anomalous behavior, potential attack vectors, and security risks in silicon designs",
+        "Collaborating on validation of security mechanisms integrated in SoCs during functional and regression testing cycles"
       ]
     },
     "freelance": {
